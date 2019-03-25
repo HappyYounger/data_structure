@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/adt/adt.c
+stddef.h
+-
+string.h
+-
+adt.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/adt/adt.h
+
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/adt/adt.h
+stdbool.h
+-
+
