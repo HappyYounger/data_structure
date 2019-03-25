@@ -18,3 +18,13 @@ adt.h
 stdbool.h
 -
 
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/list.c
+list.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/list.h
+stdlib.h
+-
+
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/list.h
+../adt/adt.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/adt/adt.h
+

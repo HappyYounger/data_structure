@@ -12,9 +12,9 @@ typedef struct {
     void *data;
 } _adt, *_p_adt;
 
-typedef _p_adt (*_p_func_adt_assigns)(_p_adt p_ad1, _p_adt p_ad2);
+typedef _p_adt (*_p_func_adt_assigns)(_p_adt p_ad1, _p_adt p_ad2, unsigned bytes);
 
-typedef bool (*_p_func_adt_equals)(_p_adt p_ad1, _p_adt p_ad2);
+typedef bool (*_p_func_adt_equals)(_p_adt p_ad1, _p_adt p_ad2, unsigned bytes);
 
 typedef bool (*_p_func_if)(_p_adt p_ad1, _p_adt p_ad2);
 

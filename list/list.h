@@ -18,7 +18,7 @@ typedef struct {
 
 } _list, *_p_list;
 
-_p_list list_init(unsigned element_size, unsigned list_capacity,
+_p_list list_init(unsigned list_capacity,
                   _p_func_adt_assigns adt_assigns,
                   _p_func_adt_equals adt_equals);
 
