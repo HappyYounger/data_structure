@@ -3,9 +3,10 @@
 
 CMakeFiles/data_structure.dir/adt/adt.c.o: ../adt/adt.c
 CMakeFiles/data_structure.dir/adt/adt.c.o: ../adt/adt.h
+CMakeFiles/data_structure.dir/adt/adt.c.o: ../pool/pool.h
 
 CMakeFiles/data_structure.dir/global.c.o: ../global.c
-CMakeFiles/data_structure.dir/global.c.o: ../global.h
+CMakeFiles/data_structure.dir/global.c.o: ../pool/pool.h
 
 CMakeFiles/data_structure.dir/list/linked_list.c.o: ../list/linked_list.c
 CMakeFiles/data_structure.dir/list/linked_list.c.o: ../list/linked_list.h
@@ -13,8 +14,11 @@ CMakeFiles/data_structure.dir/list/linked_list.c.o: ../list/linked_list.h
 CMakeFiles/data_structure.dir/list/list.c.o: ../adt/adt.h
 CMakeFiles/data_structure.dir/list/list.c.o: ../list/list.c
 CMakeFiles/data_structure.dir/list/list.c.o: ../list/list.h
+CMakeFiles/data_structure.dir/list/list.c.o: ../pool/pool.h
 
+CMakeFiles/data_structure.dir/main.c.o: ../adt/adt.h
 CMakeFiles/data_structure.dir/main.c.o: ../global.h
+CMakeFiles/data_structure.dir/main.c.o: ../list/list.h
 CMakeFiles/data_structure.dir/main.c.o: ../main.c
 CMakeFiles/data_structure.dir/main.c.o: ../pool/pool.h
 
