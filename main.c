@@ -42,6 +42,7 @@ int main() {
 
     list_print(p_list, print_data_int);
 
+    list_clear(p_list);
     destroy_pool(p_memory_pool);
     return 0;
 }

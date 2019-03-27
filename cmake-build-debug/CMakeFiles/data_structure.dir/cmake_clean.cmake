@@ -5,6 +5,11 @@ file(REMOVE_RECURSE
   "CMakeFiles/data_structure.dir/list/list.c.o"
   "CMakeFiles/data_structure.dir/list/linked_list.c.o"
   "CMakeFiles/data_structure.dir/adt/adt.c.o"
+  "CMakeFiles/data_structure.dir/stack/stack.c.o"
+  "CMakeFiles/data_structure.dir/stack/linked_stack.c.o"
+  "CMakeFiles/data_structure.dir/stack/sample/expression.c.o"
+  "CMakeFiles/data_structure.dir/queue/queue.c.o"
+  "CMakeFiles/data_structure.dir/queue/linked_queue.c.o"
   "data_structure.pdb"
   "data_structure"
 )

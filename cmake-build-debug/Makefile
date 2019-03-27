@@ -285,6 +285,141 @@ pool/pool.c.s:
 	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/pool/pool.c.s
 .PHONY : pool/pool.c.s
 
+queue/linked_queue.o: queue/linked_queue.c.o
+
+.PHONY : queue/linked_queue.o
+
+# target to build an object file
+queue/linked_queue.c.o:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/linked_queue.c.o
+.PHONY : queue/linked_queue.c.o
+
+queue/linked_queue.i: queue/linked_queue.c.i
+
+.PHONY : queue/linked_queue.i
+
+# target to preprocess a source file
+queue/linked_queue.c.i:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/linked_queue.c.i
+.PHONY : queue/linked_queue.c.i
+
+queue/linked_queue.s: queue/linked_queue.c.s
+
+.PHONY : queue/linked_queue.s
+
+# target to generate assembly for a file
+queue/linked_queue.c.s:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/linked_queue.c.s
+.PHONY : queue/linked_queue.c.s
+
+queue/queue.o: queue/queue.c.o
+
+.PHONY : queue/queue.o
+
+# target to build an object file
+queue/queue.c.o:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/queue.c.o
+.PHONY : queue/queue.c.o
+
+queue/queue.i: queue/queue.c.i
+
+.PHONY : queue/queue.i
+
+# target to preprocess a source file
+queue/queue.c.i:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/queue.c.i
+.PHONY : queue/queue.c.i
+
+queue/queue.s: queue/queue.c.s
+
+.PHONY : queue/queue.s
+
+# target to generate assembly for a file
+queue/queue.c.s:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/queue.c.s
+.PHONY : queue/queue.c.s
+
+stack/linked_stack.o: stack/linked_stack.c.o
+
+.PHONY : stack/linked_stack.o
+
+# target to build an object file
+stack/linked_stack.c.o:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/stack/linked_stack.c.o
+.PHONY : stack/linked_stack.c.o
+
+stack/linked_stack.i: stack/linked_stack.c.i
+
+.PHONY : stack/linked_stack.i
+
+# target to preprocess a source file
+stack/linked_stack.c.i:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/stack/linked_stack.c.i
+.PHONY : stack/linked_stack.c.i
+
+stack/linked_stack.s: stack/linked_stack.c.s
+
+.PHONY : stack/linked_stack.s
+
+# target to generate assembly for a file
+stack/linked_stack.c.s:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/stack/linked_stack.c.s
+.PHONY : stack/linked_stack.c.s
+
+stack/sample/expression.o: stack/sample/expression.c.o
+
+.PHONY : stack/sample/expression.o
+
+# target to build an object file
+stack/sample/expression.c.o:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/stack/sample/expression.c.o
+.PHONY : stack/sample/expression.c.o
+
+stack/sample/expression.i: stack/sample/expression.c.i
+
+.PHONY : stack/sample/expression.i
+
+# target to preprocess a source file
+stack/sample/expression.c.i:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/stack/sample/expression.c.i
+.PHONY : stack/sample/expression.c.i
+
+stack/sample/expression.s: stack/sample/expression.c.s
+
+.PHONY : stack/sample/expression.s
+
+# target to generate assembly for a file
+stack/sample/expression.c.s:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/stack/sample/expression.c.s
+.PHONY : stack/sample/expression.c.s
+
+stack/stack.o: stack/stack.c.o
+
+.PHONY : stack/stack.o
+
+# target to build an object file
+stack/stack.c.o:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/stack/stack.c.o
+.PHONY : stack/stack.c.o
+
+stack/stack.i: stack/stack.c.i
+
+.PHONY : stack/stack.i
+
+# target to preprocess a source file
+stack/stack.c.i:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/stack/stack.c.i
+.PHONY : stack/stack.c.i
+
+stack/stack.s: stack/stack.c.s
+
+.PHONY : stack/stack.s
+
+# target to generate assembly for a file
+stack/stack.c.s:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/stack/stack.c.s
+.PHONY : stack/stack.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -312,6 +447,21 @@ help:
 	@echo "... pool/pool.o"
 	@echo "... pool/pool.i"
 	@echo "... pool/pool.s"
+	@echo "... queue/linked_queue.o"
+	@echo "... queue/linked_queue.i"
+	@echo "... queue/linked_queue.s"
+	@echo "... queue/queue.o"
+	@echo "... queue/queue.i"
+	@echo "... queue/queue.s"
+	@echo "... stack/linked_stack.o"
+	@echo "... stack/linked_stack.i"
+	@echo "... stack/linked_stack.s"
+	@echo "... stack/sample/expression.o"
+	@echo "... stack/sample/expression.i"
+	@echo "... stack/sample/expression.s"
+	@echo "... stack/stack.o"
+	@echo "... stack/stack.i"
+	@echo "... stack/stack.s"
 .PHONY : help
 
 

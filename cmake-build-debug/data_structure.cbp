@@ -111,6 +111,36 @@
 		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h">
 			<Option target="data_structure"/>
 		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/linked_queue.c">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/linked_queue.h">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/queue.c">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/queue.h">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/linked_stack.c">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/linked_stack.h">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/sample/expression.c">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/sample/expression.h">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/stack.c">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/stack.h">
+			<Option target="data_structure"/>
+		</Unit>
 		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
