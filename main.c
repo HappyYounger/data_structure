@@ -10,9 +10,9 @@ bool equal_int(_p_adt p_ad1, _p_adt p_ad2);
 
 _p_adt assign_int(_p_adt p_ad1, _p_adt p_ad2);
 
-int main() {
 
-    _p_memory_pool p_memory_pool = init_mem_pool();
+static void list_test(){
+
     _p_list p_list = list_init(16, assign_int, equal_int);
 
     _p_adt p_ad = pick_some_ad(4, sizeof(int));
@@ -43,6 +43,12 @@ int main() {
     list_print(p_list, print_data_int);
 
     list_clear(p_list);
+}
+
+int main() {
+
+    _p_memory_pool p_memory_pool = init_mem_pool();
+    list_test();
     destroy_pool(p_memory_pool);
     return 0;
 }

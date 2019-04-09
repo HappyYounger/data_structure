@@ -285,32 +285,32 @@ pool/pool.c.s:
 	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/pool/pool.c.s
 .PHONY : pool/pool.c.s
 
-queue/linked_queue.o: queue/linked_queue.c.o
+queue/circle_queue.o: queue/circle_queue.c.o
 
-.PHONY : queue/linked_queue.o
+.PHONY : queue/circle_queue.o
 
 # target to build an object file
-queue/linked_queue.c.o:
-	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/linked_queue.c.o
-.PHONY : queue/linked_queue.c.o
+queue/circle_queue.c.o:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/circle_queue.c.o
+.PHONY : queue/circle_queue.c.o
 
-queue/linked_queue.i: queue/linked_queue.c.i
+queue/circle_queue.i: queue/circle_queue.c.i
 
-.PHONY : queue/linked_queue.i
+.PHONY : queue/circle_queue.i
 
 # target to preprocess a source file
-queue/linked_queue.c.i:
-	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/linked_queue.c.i
-.PHONY : queue/linked_queue.c.i
+queue/circle_queue.c.i:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/circle_queue.c.i
+.PHONY : queue/circle_queue.c.i
 
-queue/linked_queue.s: queue/linked_queue.c.s
+queue/circle_queue.s: queue/circle_queue.c.s
 
-.PHONY : queue/linked_queue.s
+.PHONY : queue/circle_queue.s
 
 # target to generate assembly for a file
-queue/linked_queue.c.s:
-	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/linked_queue.c.s
-.PHONY : queue/linked_queue.c.s
+queue/circle_queue.c.s:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/queue/circle_queue.c.s
+.PHONY : queue/circle_queue.c.s
 
 queue/queue.o: queue/queue.c.o
 
@@ -420,6 +420,60 @@ stack/stack.c.s:
 	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/stack/stack.c.s
 .PHONY : stack/stack.c.s
 
+tree/binary_tree.o: tree/binary_tree.c.o
+
+.PHONY : tree/binary_tree.o
+
+# target to build an object file
+tree/binary_tree.c.o:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/tree/binary_tree.c.o
+.PHONY : tree/binary_tree.c.o
+
+tree/binary_tree.i: tree/binary_tree.c.i
+
+.PHONY : tree/binary_tree.i
+
+# target to preprocess a source file
+tree/binary_tree.c.i:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/tree/binary_tree.c.i
+.PHONY : tree/binary_tree.c.i
+
+tree/binary_tree.s: tree/binary_tree.c.s
+
+.PHONY : tree/binary_tree.s
+
+# target to generate assembly for a file
+tree/binary_tree.c.s:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/tree/binary_tree.c.s
+.PHONY : tree/binary_tree.c.s
+
+tree/tree.o: tree/tree.c.o
+
+.PHONY : tree/tree.o
+
+# target to build an object file
+tree/tree.c.o:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/tree/tree.c.o
+.PHONY : tree/tree.c.o
+
+tree/tree.i: tree/tree.c.i
+
+.PHONY : tree/tree.i
+
+# target to preprocess a source file
+tree/tree.c.i:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/tree/tree.c.i
+.PHONY : tree/tree.c.i
+
+tree/tree.s: tree/tree.c.s
+
+.PHONY : tree/tree.s
+
+# target to generate assembly for a file
+tree/tree.c.s:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/tree/tree.c.s
+.PHONY : tree/tree.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -447,9 +501,9 @@ help:
 	@echo "... pool/pool.o"
 	@echo "... pool/pool.i"
 	@echo "... pool/pool.s"
-	@echo "... queue/linked_queue.o"
-	@echo "... queue/linked_queue.i"
-	@echo "... queue/linked_queue.s"
+	@echo "... queue/circle_queue.o"
+	@echo "... queue/circle_queue.i"
+	@echo "... queue/circle_queue.s"
 	@echo "... queue/queue.o"
 	@echo "... queue/queue.i"
 	@echo "... queue/queue.s"
@@ -462,6 +516,12 @@ help:
 	@echo "... stack/stack.o"
 	@echo "... stack/stack.i"
 	@echo "... stack/stack.s"
+	@echo "... tree/binary_tree.o"
+	@echo "... tree/binary_tree.i"
+	@echo "... tree/binary_tree.s"
+	@echo "... tree/tree.o"
+	@echo "... tree/tree.i"
+	@echo "... tree/tree.s"
 .PHONY : help
 
 

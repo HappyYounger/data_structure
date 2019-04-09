@@ -25,3 +25,23 @@ CMakeFiles/data_structure.dir/main.c.o: ../pool/pool.h
 CMakeFiles/data_structure.dir/pool/pool.c.o: ../pool/pool.c
 CMakeFiles/data_structure.dir/pool/pool.c.o: ../pool/pool.h
 
+CMakeFiles/data_structure.dir/queue/circle_queue.c.o: ../adt/adt.h
+CMakeFiles/data_structure.dir/queue/circle_queue.c.o: ../queue/circle_queue.c
+CMakeFiles/data_structure.dir/queue/circle_queue.c.o: ../queue/circle_queue.h
+
+CMakeFiles/data_structure.dir/queue/queue.c.o: ../adt/adt.h
+CMakeFiles/data_structure.dir/queue/queue.c.o: ../pool/pool.h
+CMakeFiles/data_structure.dir/queue/queue.c.o: ../queue/queue.c
+CMakeFiles/data_structure.dir/queue/queue.c.o: ../queue/queue.h
+
+CMakeFiles/data_structure.dir/stack/linked_stack.c.o: ../stack/linked_stack.c
+CMakeFiles/data_structure.dir/stack/linked_stack.c.o: ../stack/linked_stack.h
+
+CMakeFiles/data_structure.dir/stack/sample/expression.c.o: ../stack/sample/expression.c
+CMakeFiles/data_structure.dir/stack/sample/expression.c.o: ../stack/sample/expression.h
+
+CMakeFiles/data_structure.dir/stack/stack.c.o: ../adt/adt.h
+CMakeFiles/data_structure.dir/stack/stack.c.o: ../pool/pool.h
+CMakeFiles/data_structure.dir/stack/stack.c.o: ../stack/stack.c
+CMakeFiles/data_structure.dir/stack/stack.c.o: ../stack/stack.h
+

@@ -64,3 +64,13 @@ _p_adt pick_some_ad(unsigned number, unsigned bytes) {
 
     return NULL;
 }
+
+_p_func_adt_assigns assigns_func(_p_func_adt_assigns adt_assigns) {
+
+    return adt_assigns == NULL ? adt_def_assigns : adt_assigns;
+}
+
+_p_func_adt_equals equals_func(_p_func_adt_equals adt_equals) {
+
+    return adt_equals == NULL ? adt_def_equals : adt_equals;
+}

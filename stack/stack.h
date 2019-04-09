@@ -14,14 +14,20 @@ typedef struct stack {
     unsigned capacity;
     _p_adt *array;
 
+    _p_func_adt_assigns adt_assigns;
+
+
 } _stack, *_p_stack;
 
-_p_stack stack_init(unsigned capacity);
+_p_stack stack_init(_p_func_adt_assigns adt_assigns);
+
+_p_stack stack_extend(_p_stack p_stack);
 
 _p_adt stack_pop(_p_stack p_stack);
 
 _p_stack stack_push(_p_stack p_stack, _p_adt p_ad);
 
 _p_adt stack_top(_p_stack p_stack);
+
 
 #endif //DATA_STRUCTURE_STACK_H

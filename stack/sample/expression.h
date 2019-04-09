@@ -8,10 +8,12 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-char *strip_white_space(const char *mid_expression);
+char *strip_white_space(const char *infix_expression);
 
-bool is_invalid_expression(const char *mid_expression);
+bool is_invalid_expression(const char *infix_expression);
 
+char *get_postfix_expression(const char *infix_expression);
 
+double cal_postfix_expression();
 
 #endif //DATA_STRUCTURE_EXPRESSION_H

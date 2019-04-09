@@ -23,8 +23,8 @@ _p_list list_init(unsigned capacity,
 
         p_list->list = alloc_memory(p_memory_pool, sizeof(_p_adt) * p_list->capacity);
 
-        p_list->adt_assigns = adt_assigns == NULL ? adt_def_assigns : adt_assigns;
-        p_list->adt_equals = adt_equals == NULL ? adt_def_equals : adt_equals;
+        p_list->adt_assigns = assigns_func(adt_assigns);
+        p_list->adt_equals = equals_func(adt_equals);
 
         return p_list;
     }

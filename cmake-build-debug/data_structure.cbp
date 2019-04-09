@@ -111,10 +111,10 @@
 		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h">
 			<Option target="data_structure"/>
 		</Unit>
-		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/linked_queue.c">
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/circle_queue.c">
 			<Option target="data_structure"/>
 		</Unit>
-		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/linked_queue.h">
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/circle_queue.h">
 			<Option target="data_structure"/>
 		</Unit>
 		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/queue.c">
@@ -139,6 +139,18 @@
 			<Option target="data_structure"/>
 		</Unit>
 		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/stack.h">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/binary_tree.c">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/binary_tree.h">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/tree.c">
+			<Option target="data_structure"/>
+		</Unit>
+		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/tree.h">
 			<Option target="data_structure"/>
 		</Unit>
 		<Unit filename="/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/CMakeLists.txt">

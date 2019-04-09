@@ -9,7 +9,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/data_structure.dir/stack/linked_stack.c.o"
   "CMakeFiles/data_structure.dir/stack/sample/expression.c.o"
   "CMakeFiles/data_structure.dir/queue/queue.c.o"
-  "CMakeFiles/data_structure.dir/queue/linked_queue.c.o"
+  "CMakeFiles/data_structure.dir/queue/circle_queue.c.o"
+  "CMakeFiles/data_structure.dir/tree/tree.c.o"
+  "CMakeFiles/data_structure.dir/tree/binary_tree.c.o"
   "data_structure.pdb"
   "data_structure"
 )

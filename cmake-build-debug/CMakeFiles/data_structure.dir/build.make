@@ -187,18 +187,44 @@ CMakeFiles/data_structure.dir/queue/queue.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/data_structure.dir/queue/queue.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/queue.c -o CMakeFiles/data_structure.dir/queue/queue.c.s
 
-CMakeFiles/data_structure.dir/queue/linked_queue.c.o: CMakeFiles/data_structure.dir/flags.make
-CMakeFiles/data_structure.dir/queue/linked_queue.c.o: ../queue/linked_queue.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/data_structure.dir/queue/linked_queue.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/data_structure.dir/queue/linked_queue.c.o   -c /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/linked_queue.c
+CMakeFiles/data_structure.dir/queue/circle_queue.c.o: CMakeFiles/data_structure.dir/flags.make
+CMakeFiles/data_structure.dir/queue/circle_queue.c.o: ../queue/circle_queue.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/data_structure.dir/queue/circle_queue.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/data_structure.dir/queue/circle_queue.c.o   -c /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/circle_queue.c
 
-CMakeFiles/data_structure.dir/queue/linked_queue.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/data_structure.dir/queue/linked_queue.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/linked_queue.c > CMakeFiles/data_structure.dir/queue/linked_queue.c.i
+CMakeFiles/data_structure.dir/queue/circle_queue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/data_structure.dir/queue/circle_queue.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/circle_queue.c > CMakeFiles/data_structure.dir/queue/circle_queue.c.i
 
-CMakeFiles/data_structure.dir/queue/linked_queue.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/data_structure.dir/queue/linked_queue.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/linked_queue.c -o CMakeFiles/data_structure.dir/queue/linked_queue.c.s
+CMakeFiles/data_structure.dir/queue/circle_queue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/data_structure.dir/queue/circle_queue.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/circle_queue.c -o CMakeFiles/data_structure.dir/queue/circle_queue.c.s
+
+CMakeFiles/data_structure.dir/tree/tree.c.o: CMakeFiles/data_structure.dir/flags.make
+CMakeFiles/data_structure.dir/tree/tree.c.o: ../tree/tree.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/data_structure.dir/tree/tree.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/data_structure.dir/tree/tree.c.o   -c /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/tree.c
+
+CMakeFiles/data_structure.dir/tree/tree.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/data_structure.dir/tree/tree.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/tree.c > CMakeFiles/data_structure.dir/tree/tree.c.i
+
+CMakeFiles/data_structure.dir/tree/tree.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/data_structure.dir/tree/tree.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/tree.c -o CMakeFiles/data_structure.dir/tree/tree.c.s
+
+CMakeFiles/data_structure.dir/tree/binary_tree.c.o: CMakeFiles/data_structure.dir/flags.make
+CMakeFiles/data_structure.dir/tree/binary_tree.c.o: ../tree/binary_tree.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/data_structure.dir/tree/binary_tree.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/data_structure.dir/tree/binary_tree.c.o   -c /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/binary_tree.c
+
+CMakeFiles/data_structure.dir/tree/binary_tree.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/data_structure.dir/tree/binary_tree.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/binary_tree.c > CMakeFiles/data_structure.dir/tree/binary_tree.c.i
+
+CMakeFiles/data_structure.dir/tree/binary_tree.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/data_structure.dir/tree/binary_tree.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/binary_tree.c -o CMakeFiles/data_structure.dir/tree/binary_tree.c.s
 
 # Object files for target data_structure
 data_structure_OBJECTS = \
@@ -212,7 +238,9 @@ data_structure_OBJECTS = \
 "CMakeFiles/data_structure.dir/stack/linked_stack.c.o" \
 "CMakeFiles/data_structure.dir/stack/sample/expression.c.o" \
 "CMakeFiles/data_structure.dir/queue/queue.c.o" \
-"CMakeFiles/data_structure.dir/queue/linked_queue.c.o"
+"CMakeFiles/data_structure.dir/queue/circle_queue.c.o" \
+"CMakeFiles/data_structure.dir/tree/tree.c.o" \
+"CMakeFiles/data_structure.dir/tree/binary_tree.c.o"
 
 # External object files for target data_structure
 data_structure_EXTERNAL_OBJECTS =
@@ -227,10 +255,12 @@ data_structure: CMakeFiles/data_structure.dir/stack/stack.c.o
 data_structure: CMakeFiles/data_structure.dir/stack/linked_stack.c.o
 data_structure: CMakeFiles/data_structure.dir/stack/sample/expression.c.o
 data_structure: CMakeFiles/data_structure.dir/queue/queue.c.o
-data_structure: CMakeFiles/data_structure.dir/queue/linked_queue.c.o
+data_structure: CMakeFiles/data_structure.dir/queue/circle_queue.c.o
+data_structure: CMakeFiles/data_structure.dir/tree/tree.c.o
+data_structure: CMakeFiles/data_structure.dir/tree/binary_tree.c.o
 data_structure: CMakeFiles/data_structure.dir/build.make
 data_structure: CMakeFiles/data_structure.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C executable data_structure"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking C executable data_structure"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/data_structure.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
