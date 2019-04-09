@@ -12,7 +12,9 @@ extern _p_memory_pool p_memory_pool;
 
 _p_list list_init(unsigned capacity,
                   _p_func_adt_assigns adt_assigns,
-                  _p_func_adt_equals adt_equals) {
+                  _p_func_adt_bits_assigns bits_assigns,
+                  _p_func_adt_equals adt_equals,
+                  _p_func_adt_bits_equals bits_equals) {
 
     _p_list p_list = alloc_memory(p_memory_pool, sizeof(_list));
 
@@ -25,6 +27,8 @@ _p_list list_init(unsigned capacity,
 
         p_list->adt_assigns = assigns_func(adt_assigns);
         p_list->adt_equals = equals_func(adt_equals);
+        p_list->adt_bits_assigns = bits_assigns_func(bits_assigns);
+        p_list->adt_bits_equals = bits_assigns_func(bits_equals);
 
         return p_list;
     }
@@ -55,9 +59,7 @@ int list_find(_p_list p_list, _p_adt p_ad) {
 
         for (int i = 0; i < p_list->size; ++i) {
 
-            if ((p_list->adt_equals != NULL && p_list->adt_equals(p_list->list[i], p_ad))
-                ||
-                (p_list->adt_equals == NULL && p_list->list[i]->data == p_ad->data)) {
+            if (p_list->adt_equals(p_list->list[i], p_ad)) {
 
                 return i;
             }

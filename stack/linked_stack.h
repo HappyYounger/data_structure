@@ -19,9 +19,11 @@ typedef struct linked_stack {
 
     _p_linked_stack_node top;
     _p_func_adt_assigns adt_assigns;
+    _p_func_adt_bits_assigns adt_bits_assigns;
+
 } _linked_stack, *_p_linked_stack;
 
-_p_linked_stack linked_stack_init(_p_func_adt_assigns adt_assigns);
+_p_linked_stack linked_stack_init(_p_func_adt_assigns adt_assigns, _p_func_adt_bits_assigns adt_bits_assigns);
 
 _p_linked_stack linked_stack_push(_p_linked_stack p_linked_stack, _p_adt p_ad);
 

@@ -9,7 +9,7 @@ extern _p_memory_pool p_memory_pool;
 
 static const unsigned _DEFAULT_STACK_CAPACITY_ = 32;
 
-_p_stack stack_init(_p_func_adt_assigns adt_assigns) {
+_p_stack stack_init(_p_func_adt_assigns adt_assigns, _p_func_adt_bits_assigns adt_bits_assigns) {
 
     if (p_memory_pool != NULL) {
 
@@ -20,6 +20,7 @@ _p_stack stack_init(_p_func_adt_assigns adt_assigns) {
         p_stack->array = alloc_memory(p_memory_pool, p_stack->capacity * sizeof(_p_adt));
 
         p_stack->adt_assigns = assigns_func(adt_assigns);
+        p_stack->adt_bits_assigns = bits_assigns_func(adt_bits_assigns);
         return p_stack;
     }
     return NULL;

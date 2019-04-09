@@ -7,7 +7,7 @@
 
 extern _p_memory_pool p_memory_pool;
 
-_p_queue queue_init(_p_func_adt_assigns adt_assigns) {
+_p_queue queue_init(_p_func_adt_assigns adt_assigns, _p_func_adt_bits_assigns adt_bits_assigns) {
 
     if (p_memory_pool != NULL) {
 
@@ -16,6 +16,8 @@ _p_queue queue_init(_p_func_adt_assigns adt_assigns) {
         p_queue->size = 0;
 
         p_queue->adt_assigns = assigns_func(adt_assigns);
+        p_queue->adt_bits_assigns = assigns_func(adt_bits_assigns);
+
     }
 
     return NULL;

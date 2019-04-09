@@ -6,14 +6,9 @@
 
 void print_data_int(_p_adt p_ad);
 
-bool equal_int(_p_adt p_ad1, _p_adt p_ad2);
+static void list_test() {
 
-_p_adt assign_int(_p_adt p_ad1, _p_adt p_ad2);
-
-
-static void list_test(){
-
-    _p_list p_list = list_init(16, assign_int, equal_int);
+    _p_list p_list = list_init(16, NULL, NULL, NULL, NULL);
 
     _p_adt p_ad = pick_some_ad(4, sizeof(int));
 
@@ -45,11 +40,29 @@ static void list_test(){
     list_clear(p_list);
 }
 
+static void tree_test();
+
+unsigned count_test(unsigned x) {
+
+    static unsigned count = 0;
+
+    if (x > 0) {
+
+        count++;
+        count_test(--x);
+    }
+
+    return count;
+}
+
 int main() {
 
     _p_memory_pool p_memory_pool = init_mem_pool();
     list_test();
     destroy_pool(p_memory_pool);
+
+//    unsigned count = count_test(262094);//max value 262094
+//    printf("%d\n", count);
     return 0;
 }
 
@@ -62,23 +75,3 @@ void print_data_int(_p_adt p_ad) {
     }
 }
 
-bool equal_int(_p_adt p_ad1, _p_adt p_ad2) {
-
-    if (p_ad1 != NULL && p_ad1 != NULL) {
-
-        return p_ad1->data == p_ad2->data;
-    }
-
-    return false;
-}
-
-_p_adt assign_int(_p_adt p_ad1, _p_adt p_ad2) {
-
-    if (p_ad1 != NULL && p_ad2 != NULL) {
-
-        p_ad1->data = p_ad2->data;
-        return p_ad1;
-    }
-
-    return NULL;
-}

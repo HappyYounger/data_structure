@@ -15,11 +15,12 @@ typedef struct stack {
     _p_adt *array;
 
     _p_func_adt_assigns adt_assigns;
+    _p_func_adt_bits_assigns adt_bits_assigns;
 
 
 } _stack, *_p_stack;
 
-_p_stack stack_init(_p_func_adt_assigns adt_assigns);
+_p_stack stack_init(_p_func_adt_assigns adt_assigns, _p_func_adt_bits_assigns adt_bits_assigns);
 
 _p_stack stack_extend(_p_stack p_stack);
 
