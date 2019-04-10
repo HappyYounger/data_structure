@@ -37,6 +37,30 @@ list/list.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/list.h
 list/linked_list.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/linked_list.h
+stack/stack.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/stack.h
+stack/linked_stack.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/linked_stack.h
+queue/queue.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/queue.h
 
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h
+
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/queue.h
+../adt/adt.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/adt/adt.h
+../pool/pool.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h
+
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/linked_stack.h
+../adt/adt.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/adt/adt.h
+../pool/pool.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h
+
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/stack/stack.h
+../adt/adt.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/adt/adt.h
+../pool/pool.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h
 

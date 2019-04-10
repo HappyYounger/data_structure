@@ -20,7 +20,7 @@ typedef struct adt {
 /**
  * 赋值
  */
-typedef _p_adt (*_p_func_adt_assigns)(_p_adt p_ad1, _p_adt p_ad2);
+typedef _p_adt (*_p_func_adt_assigns)(_p_adt* p_ad1, _p_adt p_ad2);
 
 /**
  * 按字节赋值

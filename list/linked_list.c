@@ -149,7 +149,7 @@ _p_linked_list_node linked_list_insert_first_after(_p_linked_list p_linked_list,
             if (p_linked_list_node->p_next != NULL) {
 
                 p_linked_list_node->p_next->p_previous = p_linked_list_node;
-            } else{
+            } else {
 
                 p_linked_list->last = p_linked_list_node;
             }
@@ -182,7 +182,7 @@ _p_linked_list_node linked_list_insert_last_before(_p_linked_list p_linked_list,
             if (p_linked_list_node->p_previous != NULL) {
 
                 p_linked_list_node->p_previous->p_next = p_linked_list_node;
-            } else{
+            } else {
 
                 p_linked_list->first = p_linked_list_node;
             }

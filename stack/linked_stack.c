@@ -26,7 +26,7 @@ _p_linked_stack linked_stack_push(_p_linked_stack p_linked_stack, _p_adt p_ad) {
 
         _p_linked_stack_node p_linked_stack_node = alloc_memory(sizeof(struct linked_stack_node));
 
-        p_linked_stack->adt_assigns(p_linked_stack_node->p_ad, p_ad);
+        p_linked_stack->adt_assigns(&p_linked_stack_node->p_ad, p_ad);
 
         p_linked_stack_node->p_next = p_linked_stack->top;
         p_linked_stack->top = p_linked_stack_node;

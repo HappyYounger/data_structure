@@ -3,6 +3,9 @@
 #include "pool/pool.h"
 #include "list/list.h"
 #include "list/linked_list.h"
+#include "stack/stack.h"
+#include "stack/linked_stack.h"
+#include "queue/queue.h"
 
 void print_data_int(_p_adt p_ad);
 
@@ -100,6 +103,99 @@ static void linked_list_test() {
 
 }
 
+static void stack_test() {
+
+    _p_stack p_stack = stack_init(NULL, NULL);
+
+    unsigned size = 4;
+    _p_adt p_ad = get_ads(size, sizeof(int));
+    int *p_int_array = alloc_memory(sizeof(int) * size);
+
+    for (int j = 0; j < size; ++j) {
+
+        p_ad[j].data = p_int_array + j;
+        *(p_int_array + j) = j * 2;
+    }
+
+    stack_push(p_stack, p_ad);
+    _p_adt p_ad1 = stack_pop(p_stack);
+    print_data_int(p_ad1);
+    stack_push(p_stack, p_ad + 1);
+    stack_push(p_stack, p_ad + 2);
+    stack_push(p_stack, p_ad + 3);
+    p_ad1 = stack_pop(p_stack);
+    print_data_int(p_ad1);
+    p_ad1 = stack_pop(p_stack);
+    print_data_int(p_ad1);
+    p_ad1 = stack_pop(p_stack);
+    print_data_int(p_ad1);
+
+    return;
+}
+
+static void linked_stack_test() {
+
+    _p_stack p_stack = linked_stack_init(NULL, NULL);
+
+    unsigned size = 4;
+    _p_adt p_ad = get_ads(size, sizeof(int));
+    int *p_int_array = alloc_memory(sizeof(int) * size);
+
+    for (int j = 0; j < size; ++j) {
+
+        p_ad[j].data = p_int_array + j;
+        *(p_int_array + j) = j * 2;
+    }
+
+    linked_stack_push(p_stack, p_ad);
+    _p_adt p_ad1 = linked_stack_pop(p_stack);
+    print_data_int(p_ad1);
+    linked_stack_push(p_stack, p_ad + 1);
+    linked_stack_push(p_stack, p_ad + 2);
+    linked_stack_push(p_stack, p_ad + 3);
+    p_ad1 = linked_stack_pop(p_stack);
+    print_data_int(p_ad1);
+    p_ad1 = linked_stack_pop(p_stack);
+    print_data_int(p_ad1);
+    p_ad1 = linked_stack_pop(p_stack);
+    print_data_int(p_ad1);
+
+    return;
+}
+
+static void queue_test() {
+
+    unsigned size = 4;
+    _p_adt p_ad = get_ads(size, sizeof(int));
+    int *p_int_array = alloc_memory(sizeof(int) * size);
+
+    for (int j = 0; j < size; ++j) {
+
+        p_ad[j].data = p_int_array + j;
+        *(p_int_array + j) = j * 2;
+    }
+
+    _p_queue p_queue = queue_init(NULL, NULL);
+
+    queue_enqueue(p_queue, p_ad);
+    queue_enqueue(p_queue, p_ad + 2);
+    queue_enqueue(p_queue, p_ad + 3);
+
+    _p_adt p_ad1 = queue_dequeue(p_queue);
+    print_data_int(p_ad1);
+    p_ad1 = queue_dequeue(p_queue);
+    print_data_int(p_ad1);
+    p_ad1 = queue_dequeue(p_queue);
+    print_data_int(p_ad1);
+
+
+    queue_enqueue(p_queue, p_ad + 1);
+
+    p_ad1 = queue_dequeue(p_queue);
+    print_data_int(p_ad1);
+}
+
+
 static void tree_test() {
 
 
@@ -124,8 +220,10 @@ int main() {
 
 //    pool_test();
 //    list_test();
+//    linked_list_test();
+//    stack_test();
 
-    linked_list_test();
+    queue_test();
     destroy_pool(pool);
 
 //    unsigned count = count_test(262094);//max value 262094 for iteration

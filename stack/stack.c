@@ -44,7 +44,7 @@ _p_stack stack_push(_p_stack p_stack, _p_adt p_ad) {
 
         if (p_stack != NULL) {
 
-            p_stack->array[p_stack->top++] = p_ad;
+            p_stack->array[++p_stack->top] = p_ad;
         }
         return p_stack;
     }

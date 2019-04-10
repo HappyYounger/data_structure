@@ -41,7 +41,6 @@ _p_list list_extend(_p_list p_list) {
         _p_adt *old_list = p_list->list;
 
         p_list->capacity *= 2;
-//        p_list->list = alloc_memory(p_memory_pool, sizeof(_p_adt) * p_list->capacity);
         p_list->list = alloc_memory(sizeof(_p_adt) * p_list->capacity);
 
         memcpy(p_list->list, old_list, sizeof(_adt) * p_list->capacity / 2);
