@@ -8,22 +8,20 @@
 
 static const int _DEFAULT_LIST_CAPACITY_ = 16;
 
-extern _p_memory_pool p_memory_pool;
-
 _p_list list_init(unsigned capacity,
                   _p_func_adt_assigns adt_assigns,
                   _p_func_adt_bits_assigns bits_assigns,
                   _p_func_adt_equals adt_equals,
                   _p_func_adt_bits_equals bits_equals) {
 
-    _p_list p_list = alloc_memory(p_memory_pool, sizeof(_list));
+    _p_list p_list = alloc_memory(sizeof(_list));
 
     if (p_list != NULL) {
 
         p_list->size = 0;
         p_list->capacity = capacity < _DEFAULT_LIST_CAPACITY_ ? _DEFAULT_LIST_CAPACITY_ : capacity;
 
-        p_list->list = alloc_memory(p_memory_pool, sizeof(_p_adt) * p_list->capacity);
+        p_list->list = alloc_memory(sizeof(_p_adt) * p_list->capacity);
 
         p_list->adt_assigns = assigns_func(adt_assigns);
         p_list->adt_equals = equals_func(adt_equals);
@@ -43,7 +41,8 @@ _p_list list_extend(_p_list p_list) {
         _p_adt *old_list = p_list->list;
 
         p_list->capacity *= 2;
-        p_list->list = alloc_memory(p_memory_pool, sizeof(_p_adt) * p_list->capacity);
+//        p_list->list = alloc_memory(p_memory_pool, sizeof(_p_adt) * p_list->capacity);
+        p_list->list = alloc_memory(sizeof(_p_adt) * p_list->capacity);
 
         memcpy(p_list->list, old_list, sizeof(_adt) * p_list->capacity / 2);
 
@@ -170,6 +169,7 @@ int list_append(_p_list p_list, _p_adt p_ad) {
 void list_clear(_p_list p_list) {
 
     p_list->size = 0;
+
 }
 
 int list_move(_p_list p_list, unsigned from, unsigned to) {
@@ -182,7 +182,6 @@ int list_move(_p_list p_list, unsigned from, unsigned to) {
 
     return -1;
 }
-
 
 void list_print(_p_list p_list, _p_func_print print_ad) {
 

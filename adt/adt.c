@@ -57,11 +57,11 @@ bool adt_bits_equals(_p_adt p_ad1, _p_adt p_ad2) {
     return false;
 }
 
-_p_adt pick_some_ad(unsigned number) {
+_p_adt get_ad_array(unsigned number) {
 
     if (number > 0) {
 
-        _p_adt p_ad = alloc_memory(p_memory_pool, sizeof(_adt) * number);
+        _p_adt p_ad = alloc_memory(sizeof(_adt) * number);
         return p_ad;
     }
 

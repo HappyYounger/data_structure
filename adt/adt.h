@@ -87,7 +87,7 @@ bool adt_bits_equals(_p_adt p_ad1, _p_adt p_ad2);
  * @param bytes 字节数
  * @return 第一个adt的地址
  */
-_p_adt pick_some_ad(unsigned number);
+_p_adt get_ad_array(unsigned number);
 
 _p_func_adt_assigns assigns_func(_p_func_adt_assigns adt_assigns);
 

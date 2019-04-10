@@ -7,7 +7,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+static _p_memory_pool p_memory_pool;
+
 static void *alloc_memory_pool(unsigned index);
+
+static unsigned pool_size(unsigned index);
 
 static const void *block_start_address(const void *p_start, unsigned block_index) {
 
@@ -75,6 +79,8 @@ static _p_table_list add_table(_p_table_list p_table_list) {
         if (p_alloc_table != NULL) {
 
             p_table_list->table_array[p_table_list->table_size++] = p_alloc_table;
+
+            return p_table_list;
         }
     }
 
@@ -137,10 +143,26 @@ static void *remove_alloc_rec(_p_alloc_table p_alloc_table, _p_alloc_rec p_alloc
 
             if (p_current_rec == p_alloc_rec) {
 
-                p_current_rec->p_prev->p_next = p_current_rec->p_next;
+                if (p_current_rec->p_prev != NULL) {
+
+                    p_current_rec->p_prev->p_next = p_current_rec->p_next;
+                } else {
+
+                    p_alloc_table->p_rec_first = p_current_rec->p_next;
+                }
+
+
+                if (p_current_rec->p_next != NULL) {
+
+                    p_current_rec->p_next->p_prev = p_current_rec->p_prev;
+                } else {
+
+                    p_alloc_table->p_rec_last = p_current_rec->p_prev;
+                }
+                --p_alloc_table->rec_size;
 
                 dump_alloc_rec(p_alloc_rec);
-                --p_alloc_table->rec_size;
+
                 return p_alloc_table;
             }
 
@@ -159,16 +181,15 @@ static void dump_alloc_table(_p_alloc_table p_alloc_table) {
 
         while ((p_alloc_rec = p_alloc_table->p_rec_first) != NULL) {
 
-            if (p_alloc_rec != NULL) {
-
-                p_alloc_table->p_rec_first = p_alloc_rec->p_next;
-                dump_alloc_rec(p_alloc_rec);
-            }
+            p_alloc_table->p_rec_first = p_alloc_rec->p_next;
+            --p_alloc_table->rec_size;
+            dump_alloc_rec(p_alloc_rec);
         }
+
+        p_alloc_table->p_rec_first = p_alloc_table->p_rec_last = NULL;
     }
     free(p_alloc_table);
 }
-
 
 static void *try_alloc(const void *p_start, unsigned length, _p_alloc_table p_alloc_table, unsigned size) {
 
@@ -205,31 +226,30 @@ static void *try_alloc(const void *p_start, unsigned length, _p_alloc_table p_al
     return NULL;
 }
 
+static _p_memory_pool expand_memory_pool() {
 
-static _p_memory_pool expand_memory_pool(_p_memory_pool p_pool) {
+    if (p_memory_pool->pool_size < POOL_MAX) {
 
-    if (p_pool->pool_size < POOL_MAX) {
+        add_table(p_memory_pool->p_table_list);
+        p_memory_pool->pool_array[p_memory_pool->pool_size] = alloc_memory_pool(p_memory_pool->pool_size);
+        ++p_memory_pool->pool_size;
 
-        add_table(p_pool->p_table_list);
-        p_pool->pool_array[p_pool->pool_size] = alloc_memory_pool(p_pool->pool_size);
-        ++p_pool->pool_size;
-
-        return p_pool;
+        return p_memory_pool;
     }
 
     return NULL;
 }
 
-static void *try_alloc_memory(_p_memory_pool p_pool, unsigned size) {
+static void *try_alloc_memory(unsigned size) {
 
     void *p_address = NULL, *p_start;
 
-    for (unsigned i = 0; i < p_pool->pool_size; ++i) {
+    for (unsigned i = 0; i < p_memory_pool->pool_size; ++i) {
 
-        p_start = p_pool->pool_array[i];
-        _p_alloc_table p_alloc_table = p_pool->p_table_list->table_array[i];
+        p_start = p_memory_pool->pool_array[i];
+        _p_alloc_table p_alloc_table = p_memory_pool->p_table_list->table_array[i];
 
-        p_address = try_alloc(p_start, (i + 1) * POOL_BASE_SIZE, p_alloc_table, size);
+        p_address = try_alloc(p_start, pool_size(i), p_alloc_table, size);
 
         if (p_address != NULL) {
 
@@ -238,13 +258,15 @@ static void *try_alloc_memory(_p_memory_pool p_pool, unsigned size) {
 
             add_alloc_rec(p_alloc_table, p_alloc_rec);
             return p_address;
-        }
+        } else {
 
-        if (i == p_pool->pool_size - 1) {
+            if (i == p_memory_pool->pool_size - 1) {
 
-            if (expand_memory_pool(p_pool) == NULL) {
+                if (expand_memory_pool() == NULL) {
 
-                return NULL;
+                    return NULL;
+                }
+
             }
         }
     }
@@ -252,81 +274,57 @@ static void *try_alloc_memory(_p_memory_pool p_pool, unsigned size) {
     return NULL;
 }
 
-//
-
 _p_memory_pool init_pool() {
 
-    _p_memory_pool p_pool = malloc(sizeof(_memory_pool));
+    p_memory_pool = malloc(sizeof(_memory_pool));
 
-    if (p_pool != NULL) {
+    if (p_memory_pool != NULL) {
 
-        p_pool->pool_size = 1;
-        p_pool->pool_array[0] = alloc_memory_pool(0);
-        p_pool->p_table_list = init_table_list();
+        p_memory_pool->pool_size = 1;
+        p_memory_pool->pool_array[0] = alloc_memory_pool(0);
+        p_memory_pool->p_table_list = init_table_list();
     }
 
-    return p_pool;
+    return p_memory_pool;
 }
 
-void destroy_pool(_p_memory_pool p_pool) {
+void destroy_pool() {
 
-    if (p_pool != NULL) {
+    if (p_memory_pool != NULL) {
 
-        for (int i = 0; i < p_pool->pool_size; ++i) {
+        for (int i = 0; i < p_memory_pool->pool_size; ++i) {
 
-            dump_alloc_table(p_pool->p_table_list->table_array[i]);
-            free(p_pool->pool_array[i]);
+            dump_alloc_table(p_memory_pool->p_table_list->table_array[i]);
+            free(p_memory_pool->pool_array[i]);
         }
 
-        free(p_pool);
+        free(p_memory_pool);
     }
 }
 
-void *alloc_memory(_p_memory_pool p_pool, unsigned size) {
+void *alloc_memory(unsigned size) {
 
-    if (p_pool != NULL) {
-
-        return try_alloc_memory(p_pool, size);
-    }
-
-    return NULL;
+    return p_memory_pool != NULL ? try_alloc_memory(size) : NULL;
 }
 
-void free_data(_p_memory_pool p_pool, void *p_data) {
+void free_data(void *p_data) {
 
-    if (p_pool != NULL && p_data != NULL) {
+    if (p_memory_pool != NULL && p_data != NULL) {
 
-        for (int i = 0; i < p_pool->pool_size; ++i) {
+        for (int i = 0; i < p_memory_pool->pool_size; ++i) {
 
-            if (p_data >= p_pool->pool_array[i] && p_data < p_pool->pool_array[i] + (i + 1) * POOL_BASE_SIZE) {
+            if (p_data >= p_memory_pool->pool_array[i] &&
+                p_data < p_memory_pool->pool_array[i] + (i + 1) * POOL_BASE_SIZE) {
 
-                _p_alloc_rec p_alloc_rec = p_pool->p_table_list->table_array[i]->p_rec_first;
+                _p_alloc_rec p_alloc_rec = p_memory_pool->p_table_list->table_array[i]->p_rec_first;
 
                 while (p_alloc_rec != NULL) {
 
-                    void *p_rec_address = p_pool->pool_array[i] + p_alloc_rec->block_index * BLOCK_SIZE;
+                    void *p_rec_address = p_memory_pool->pool_array[i] + p_alloc_rec->block_index * BLOCK_SIZE;
 
                     if (p_data == p_rec_address) {
 
-                        //修改 table_rec
-                        --p_pool->p_table_list->table_array[i]->rec_size;
-
-                        if (p_alloc_rec->p_prev != NULL) {
-
-                            p_alloc_rec->p_prev->p_next = p_alloc_rec->p_next;
-                        } else {
-
-                            p_pool->p_table_list->table_array[i]->p_rec_first = p_alloc_rec->p_next;
-                        }
-
-                        if (p_alloc_rec->p_next != NULL) {
-
-                            p_alloc_rec->p_next->p_prev = p_alloc_rec->p_prev;
-                        } else {
-
-                            p_pool->p_table_list->table_array[i]->p_rec_last = p_alloc_rec->p_prev;
-                        }
-                        dump_alloc_rec(p_alloc_rec);
+                        remove_alloc_rec(p_memory_pool->p_table_list->table_array[i], p_alloc_rec);
                         return;
                     }
                     p_alloc_rec = p_alloc_rec->p_next;
@@ -338,5 +336,10 @@ void free_data(_p_memory_pool p_pool, void *p_data) {
 
 static void *alloc_memory_pool(unsigned index) {
 
-    return malloc(2 ^ index * POOL_BASE_SIZE);
+    return malloc(pool_size(index));
+}
+
+static unsigned pool_size(unsigned index) {
+
+    return (1 << index) * POOL_BASE_SIZE;
 }

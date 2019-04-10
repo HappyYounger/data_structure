@@ -5,13 +5,11 @@
 #include "linked_stack.h"
 #include <stddef.h>
 
-extern _p_memory_pool p_memory_pool;
+_p_linked_stack linked_stack_init(_p_func_adt_assigns adt_assigns, _p_func_adt_bits_assigns adt_bits_assigns) {
 
-_p_linked_stack linked_stack_init(_p_func_adt_assigns adt_assigns,_p_func_adt_bits_assigns adt_bits_assigns) {
+    _p_linked_stack p_linked_stack = alloc_memory(sizeof(struct linked_stack));
 
-    if (p_memory_pool != NULL) {
-
-        _p_linked_stack p_linked_stack = alloc_memory(p_memory_pool, sizeof(struct linked_stack));
+    if (p_linked_stack != NULL) {
 
         p_linked_stack->adt_assigns = assigns_func(adt_assigns);
         p_linked_stack->adt_bits_assigns = bits_assigns_func(adt_bits_assigns);
@@ -24,9 +22,9 @@ _p_linked_stack linked_stack_init(_p_func_adt_assigns adt_assigns,_p_func_adt_bi
 
 _p_linked_stack linked_stack_push(_p_linked_stack p_linked_stack, _p_adt p_ad) {
 
-    if (p_memory_pool != NULL && p_linked_stack != NULL && p_ad != NULL) {
+    if (p_linked_stack != NULL && p_ad != NULL) {
 
-        _p_linked_stack_node p_linked_stack_node = alloc_memory(p_memory_pool, sizeof(struct linked_stack_node));
+        _p_linked_stack_node p_linked_stack_node = alloc_memory(sizeof(struct linked_stack_node));
 
         p_linked_stack->adt_assigns(p_linked_stack_node->p_ad, p_ad);
 

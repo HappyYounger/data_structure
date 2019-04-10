@@ -3,19 +3,29 @@
 #include "pool/pool.h"
 #include "list/list.h"
 
-extern _p_memory_pool p_memory_pool;
-
 void print_data_int(_p_adt p_ad);
+
+void print_data_int_array(_p_adt p_ad, unsigned size);
 
 void pool_test() {
 
+    unsigned n = 3;
+    _p_adt p_ad_array = get_ad_array(n);
 
-    _p_adt p_ad_array = pick_some_ad(3);
-    int *p_int_array = alloc_memory(p_memory_pool, sizeof(int) * 3);
+    int *p_int_array = alloc_memory(sizeof(int) * n);
+
+    for (int i = 0; i < n; ++i) {
+
+        p_int_array[i] = i * 2;
+        p_ad_array[i].data = p_int_array + i;
+        p_ad_array[i].bytes = sizeof(int);
+    }
 
 
-    free_data(p_memory_pool, p_ad_array);
-    free_data(p_memory_pool, p_int_array);
+    print_data_int_array(p_ad_array, n);
+
+    free_data(p_ad_array);
+    free_data(p_int_array);
 }
 
 
@@ -24,8 +34,8 @@ static void list_test() {
     unsigned size = 4;
     _p_list p_list = list_init(16, NULL, NULL, NULL, NULL);
 
-    _p_adt p_ad = pick_some_ad(size);
-    int *p_int_array = alloc_memory(p_memory_pool, sizeof(int) * size);
+    _p_adt p_ad = get_ad_array(size);
+    int *p_int_array = alloc_memory(sizeof(int) * size);
 
     for (int j = 0; j < size; ++j) {
 
@@ -72,11 +82,12 @@ unsigned count_test(unsigned x) {
 
 int main() {
 
-    p_memory_pool = init_memory_pool();
-    //memory pool test
-//    pool_test();
+    _p_memory_pool pool = init_pool();
+
+    pool_test();
     list_test();
-    destroy_pool(p_memory_pool);
+
+    destroy_pool(pool);
 
 //    unsigned count = count_test(262094);//max value 262094 for iteration
 //    printf("%d\n", count);
@@ -92,3 +103,10 @@ void print_data_int(_p_adt p_ad) {
     }
 }
 
+void print_data_int_array(_p_adt p_ad, unsigned size) {
+
+    for (int i = 0; i < size; ++i) {
+
+        print_data_int(p_ad + i);
+    }
+}

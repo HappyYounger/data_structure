@@ -5,18 +5,16 @@
 #include "binary_tree.h"
 #include <stddef.h>
 
-extern _p_memory_pool p_memory_pool;
-
 _p_binary_tree binary_tree_init(_p_adt p_ad_root, _p_func_adt_assigns adt_assigns, _p_func_adt_equals adt_equals) {
 
-    if (p_memory_pool != NULL && valid_data(p_ad_root)) {
+    if (valid_data(p_ad_root)) {
 
-        _p_binary_tree p_binary_tree = alloc_memory(p_memory_pool, sizeof(_binary_tree));
+        _p_binary_tree p_binary_tree = alloc_memory(sizeof(_binary_tree));
 
         p_binary_tree->adt_assigns = assigns_func(adt_assigns);
         p_binary_tree->adt_equals = equals_func(adt_equals);
 
-        _p_binary_tree_node root = alloc_memory(p_memory_pool, sizeof(_binary_tree_node));
+        _p_binary_tree_node root = alloc_memory(sizeof(_binary_tree_node));
         p_binary_tree->adt_assigns(root->p_ad, p_ad_root);
 
         return p_binary_tree;
@@ -104,7 +102,7 @@ _p_binary_tree_node binary_tree_add_right_child_ad(_p_binary_tree p_binary_tree,
     return NULL;
 }
 
-_p_binary_tree_node binary_tree_remove_binary_tree_ad(_p_binary_tree p_binary_tree, _p_adt p_ad){
+_p_binary_tree_node binary_tree_remove_binary_tree_ad(_p_binary_tree p_binary_tree, _p_adt p_ad) {
 
     _p_binary_tree_node p_binary_tree_node = binary_tree_find_ad(p_binary_tree_node, p_ad);
     binary_tree_remove_binary_tree_node(p_binary_tree_node);
@@ -278,7 +276,7 @@ _p_binary_tree_node *pre_order_traverse(_p_binary_tree_node p_binary_tree_node) 
     if (count > 0) {
 
         _p_binary_tree_node *p_binary_tree_node_array =
-                alloc_memory(p_memory_pool, sizeof(_p_binary_tree_node) * count);
+                alloc_memory(sizeof(_p_binary_tree_node) * count);
 
         return pre_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node);
     }
@@ -292,7 +290,7 @@ _p_binary_tree_node *in_order_traverse(_p_binary_tree_node p_binary_tree_node) {
     if (count > 0) {
 
         _p_binary_tree_node *p_binary_tree_node_array =
-                alloc_memory(p_memory_pool, sizeof(_p_binary_tree_node) * count);
+                alloc_memory(sizeof(_p_binary_tree_node) * count);
 
         return in_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node);
     }
@@ -306,7 +304,7 @@ _p_binary_tree_node *post_order_traverse(_p_binary_tree_node p_binary_tree_node)
     if (count > 0) {
 
         _p_binary_tree_node *p_binary_tree_node_array =
-                alloc_memory(p_memory_pool, sizeof(_p_binary_tree_node) * count);
+                alloc_memory(sizeof(_p_binary_tree_node) * count);
 
         return post_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node);
     }
@@ -369,9 +367,9 @@ int binary_tree_depth(_p_binary_tree p_binary_tree) {
 
 _p_binary_tree_node binary_tree_make_node(_p_binary_tree p_binary_tree, _p_adt p_ad) {
 
-    if (p_memory_pool != NULL && p_binary_tree != NULL && valid_data(p_ad)) {
+    if (p_binary_tree != NULL && valid_data(p_ad)) {
 
-        _p_binary_tree_node p_binary_tree_node = alloc_memory(p_memory_pool, sizeof(_binary_tree_node));
+        _p_binary_tree_node p_binary_tree_node = alloc_memory(sizeof(_binary_tree_node));
 
         p_binary_tree->adt_assigns(p_binary_tree_node->p_ad, p_ad);
         p_binary_tree_node->p_parent = p_binary_tree_node->p_left_child = p_binary_tree_node->p_right_child = NULL;

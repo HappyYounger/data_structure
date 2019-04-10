@@ -5,35 +5,29 @@
 #include <stddef.h>
 #include "stack.h"
 
-extern _p_memory_pool p_memory_pool;
-
 static const unsigned _DEFAULT_STACK_CAPACITY_ = 32;
 
 _p_stack stack_init(_p_func_adt_assigns adt_assigns, _p_func_adt_bits_assigns adt_bits_assigns) {
 
-    if (p_memory_pool != NULL) {
+    _p_stack p_stack = alloc_memory(sizeof(_stack));
 
-        _p_stack p_stack = alloc_memory(p_memory_pool, sizeof(_stack));
+    if (p_stack != NULL) {
 
         p_stack->top = -1;
         p_stack->capacity = _DEFAULT_STACK_CAPACITY_;
-        p_stack->array = alloc_memory(p_memory_pool, p_stack->capacity * sizeof(_p_adt));
+        p_stack->array = alloc_memory(p_stack->capacity * sizeof(_p_adt));
 
         p_stack->adt_assigns = assigns_func(adt_assigns);
         p_stack->adt_bits_assigns = bits_assigns_func(adt_bits_assigns);
-        return p_stack;
     }
-    return NULL;
+    return p_stack;
 }
 
 _p_adt stack_pop(_p_stack p_stack) {
 
-    if (p_stack != NULL) {
+    if (p_stack != NULL && p_stack->top > -1) {
 
-        if (p_stack->top > -1) {
-
-            return p_stack->array[p_stack->top--];
-        }
+        return p_stack->array[p_stack->top--];
     }
 
     return NULL;
@@ -70,9 +64,9 @@ _p_adt stack_top(_p_stack p_stack) {
 
 _p_stack stack_extend(_p_stack p_stack) {
 
-    if (p_memory_pool != NULL && p_stack != NULL) {
+    if (p_stack != NULL) {
 
-        _p_adt *bigger_array = alloc_memory(p_memory_pool, p_stack->capacity * 2 * sizeof(_p_adt));
+        _p_adt *bigger_array = alloc_memory(p_stack->capacity * 2 * sizeof(_p_adt));
 
         if (bigger_array != NULL) {
 

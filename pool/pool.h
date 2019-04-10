@@ -90,7 +90,8 @@ _p_memory_pool init_pool();
  *
  * return：克隆的对象的地址
  */
-void *alloc_memory(_p_memory_pool p_pool, unsigned size);
+//void *alloc_memory(_p_memory_pool p_pool, unsigned size);
+void *alloc_memory(unsigned size);
 
 /*
  * 释放对象
@@ -98,11 +99,13 @@ void *alloc_memory(_p_memory_pool p_pool, unsigned size);
  * p_data：释放的对象的地址
  *
  */
-void free_data(_p_memory_pool p_pool, void *p_data);
+//void free_data(_p_memory_pool p_pool, void *p_data);
+void free_data(void *p_data);
 
 /*
  * 销毁内存池
  */
-void destroy_pool(_p_memory_pool p_pool);
+//void destroy_pool(_p_memory_pool p_pool);
+void destroy_pool();
 
 #endif //DATA_STRUCTURE_SAMPLE_POOL_H

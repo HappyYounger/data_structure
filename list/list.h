@@ -17,7 +17,7 @@ typedef struct {
     _p_func_adt_assigns adt_assigns;
     _p_func_adt_equals adt_equals;
     _p_func_adt_bits_assigns adt_bits_assigns;
-    _p_func_adt_bits_equals  adt_bits_equals;
+    _p_func_adt_bits_equals adt_bits_equals;
 
 
 } _list, *_p_list;
@@ -33,8 +33,7 @@ _p_list list_init(unsigned capacity,
                   _p_func_adt_assigns adt_assigns,
                   _p_func_adt_bits_assigns bits_assigns,
                   _p_func_adt_equals adt_equals,
-                  _p_func_adt_bits_equals bits_equals
-                  );
+                  _p_func_adt_bits_equals bits_equals);
 
 /**
  * list容量增倍
