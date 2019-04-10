@@ -233,11 +233,10 @@ static void *try_alloc_memory(_p_memory_pool p_pool, unsigned size) {
 
         if (p_address != NULL) {
 
-            unsigned block_index = (p_address - p_start) / BLOCK_SIZE;
+            unsigned block_index = (unsigned) (p_address - p_start) / BLOCK_SIZE;
             _p_alloc_rec p_alloc_rec = alloc_rec(block_index, size);
 
             add_alloc_rec(p_alloc_table, p_alloc_rec);
-
             return p_address;
         }
 
@@ -309,6 +308,13 @@ void free_data(_p_memory_pool p_pool, void *p_data) {
 
                     if (p_data == p_rec_address) {
 
+                        //修改 table_rec
+                        --p_pool->p_table_list->table_array[i]->rec_size;
+                        p_alloc_rec->p_prev->p_next = p_alloc_rec->p_next;
+                        if (p_alloc_rec->p_next != NULL) {
+
+                            p_alloc_rec->p_next->p_prev = p_alloc_rec->p_prev;
+                        }
                         dump_alloc_rec(p_alloc_rec);
                         return;
                     }

@@ -15,7 +15,7 @@
 #define EQ_QUEEN_MARK 'Q'
 #define WHITE_CHAR ' '
 
-_p_memory_pool init_mem_pool();
+_p_memory_pool init_memory_pool();
 
 void destroy_mem_pool();
 

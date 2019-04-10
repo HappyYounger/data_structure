@@ -19,13 +19,13 @@
  * size：字节数
  *
  */
-typedef struct AllocRec {
+typedef struct alloc_rec {
 
     unsigned block_index;
     unsigned size;
 
-    struct AllocRec *p_next;
-    struct AllocRec *p_prev;
+    struct alloc_rec *p_next;
+    struct alloc_rec *p_prev;
 
 } _alloc_rec, *_p_alloc_rec;
 
@@ -35,7 +35,7 @@ typedef struct AllocRec {
  * p_rec_first：第一条记录
  * p_rec_last：最后一条记录
  */
-typedef struct AllocTable {
+typedef struct alloc_table {
 
     unsigned rec_size;
     _p_alloc_rec p_rec_first;
@@ -48,7 +48,7 @@ typedef struct AllocTable {
  * table_size：表数量，与内存池数量一致
  * table_array：分配表数组，记录每个分配表的地址，最大值是TABLE_MAX
  */
-typedef struct AllocTableList {
+typedef struct alloc_table_list {
 
     unsigned table_size;
     _p_alloc_table table_array[TABLE_MAX];
@@ -60,7 +60,7 @@ typedef struct AllocTableList {
  *
  */
 
-typedef struct MemoryPool {
+typedef struct memory_pool {
 
     unsigned pool_size;
     void *pool_array[POOL_MAX];

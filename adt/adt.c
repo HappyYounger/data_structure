@@ -57,25 +57,12 @@ bool adt_bits_equals(_p_adt p_ad1, _p_adt p_ad2) {
     return false;
 }
 
-_p_adt pick_some_ad(unsigned number, unsigned bytes) {
+_p_adt pick_some_ad(unsigned number) {
 
-    if (number > 0 && bytes > 0) {
+    if (number > 0) {
 
         _p_adt p_ad = alloc_memory(p_memory_pool, sizeof(_adt) * number);
-
-        if (p_ad != NULL) {
-
-            void *data = alloc_memory(p_memory_pool, bytes * number);
-
-            if (data != NULL) {
-                for (int i = 0; i < number; ++i) {
-
-                    p_ad[i].bytes = bytes;
-                    p_ad[i].data = data + bytes * i;
-                }
-                return p_ad;
-            }
-        }
+        return p_ad;
     }
 
     return NULL;

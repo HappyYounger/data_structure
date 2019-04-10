@@ -7,7 +7,7 @@
 int count = 0;
 _p_memory_pool p_memory_pool;
 
-_p_memory_pool init_mem_pool() {
+_p_memory_pool init_memory_pool() {
 
     p_memory_pool = init_pool();
 
