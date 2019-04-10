@@ -12,13 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3ca8a4a-1137-4382-875e-de2ae503b0ed" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/adt/adt.h" beforeDir="false" afterPath="$PROJECT_DIR$/adt/adt.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/linked_list.c" beforeDir="false" afterPath="$PROJECT_DIR$/list/linked_list.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/list/list.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/queue/queue.c" beforeDir="false" afterPath="$PROJECT_DIR$/queue/queue.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stack/linked_stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/stack/linked_stack.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stack/stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/stack/stack.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree/binary_tree.c" beforeDir="false" afterPath="$PROJECT_DIR$/tree/binary_tree.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree/binary_tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/tree/binary_tree.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,10 +43,10 @@
         <counts>
           <entry key="Makefile" value="1" />
           <entry key="Makefile2" value="1" />
-          <entry key="c" value="140" />
+          <entry key="c" value="143" />
           <entry key="cbp" value="1" />
           <entry key="cmake" value="1" />
-          <entry key="h" value="113" />
+          <entry key="h" value="116" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -58,14 +54,14 @@
         <counts>
           <entry key="CMakeCache.txt" value="1" />
           <entry key="CMakeLists.txt" value="2" />
-          <entry key="ObjectiveC" value="253" />
+          <entry key="ObjectiveC" value="259" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="12865" />
-          <entry key="h" value="4727" />
+          <entry key="c" value="12995" />
+          <entry key="h" value="4730" />
           <entry key="m" value="134" />
           <entry key="txt" value="21" />
         </counts>
@@ -74,20 +70,77 @@
         <counts>
           <entry key="CMakeLists.txt" value="21" />
           <entry key="Doxygen file" value="21" />
-          <entry key="ObjectiveC" value="17705" />
+          <entry key="ObjectiveC" value="17838" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="192" lean-forward="true" selection-start-line="192" selection-end-line="192" />
+            <state relative-caret-position="325">
+              <caret line="211" column="41" selection-start-line="211" selection-start-column="41" selection-end-line="211" selection-end-column="41" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adt/adt.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="30" lean-forward="true" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adt/adt.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tree/binary_tree.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tree/binary_tree.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3">
+              <caret line="44" column="89" lean-forward="true" selection-start-line="44" selection-start-column="89" selection-end-line="44" selection-end-column="89" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/list/list.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="24" column="3" lean-forward="true" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/list/list.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="25" selection-start-line="25" selection-end-line="28" selection-end-column="65" />
+              <folding>
+                <element signature="e#38#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,7 +177,6 @@
         <option value="$PROJECT_DIR$/stack/sample/expression.h" />
         <option value="$PROJECT_DIR$/queue/circle_queue.h" />
         <option value="$PROJECT_DIR$/tree/tree.h" />
-        <option value="$PROJECT_DIR$/tree/binary_tree.h" />
         <option value="$PROJECT_DIR$/stack/stack.h" />
         <option value="$PROJECT_DIR$/stack/linked_stack.h" />
         <option value="$PROJECT_DIR$/queue/queue.h" />
@@ -133,7 +185,6 @@
         <option value="$PROJECT_DIR$/global.c" />
         <option value="$PROJECT_DIR$/list/list.h" />
         <option value="$PROJECT_DIR$/pool/pool.c" />
-        <option value="$PROJECT_DIR$/tree/binary_tree.c" />
         <option value="$PROJECT_DIR$/list/linked_list.h" />
         <option value="$PROJECT_DIR$/adt/adt.c" />
         <option value="$PROJECT_DIR$/stack/stack.c" />
@@ -142,7 +193,9 @@
         <option value="$PROJECT_DIR$/list/list.c" />
         <option value="$PROJECT_DIR$/list/linked_list.c" />
         <option value="$PROJECT_DIR$/queue/queue.c" />
+        <option value="$PROJECT_DIR$/tree/binary_tree.h" />
         <option value="$PROJECT_DIR$/main.c" />
+        <option value="$PROJECT_DIR$/tree/binary_tree.c" />
       </list>
     </option>
   </component>
@@ -174,33 +227,7 @@
             <path>
               <item name="data_structure" type="b2602c69:ProjectViewProjectNode" />
               <item name="data_structure" type="462c0819:PsiDirectoryNode" />
-              <item name="adt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="data_structure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="data_structure" type="462c0819:PsiDirectoryNode" />
               <item name="list" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="data_structure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="data_structure" type="462c0819:PsiDirectoryNode" />
-              <item name="pool" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="data_structure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="data_structure" type="462c0819:PsiDirectoryNode" />
-              <item name="queue" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="data_structure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="data_structure" type="462c0819:PsiDirectoryNode" />
-              <item name="stack" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="data_structure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="data_structure" type="462c0819:PsiDirectoryNode" />
-              <item name="stack" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="data_structure" type="b2602c69:ProjectViewProjectNode" />
@@ -275,12 +302,12 @@
       <workItem from="1554696927037" duration="23558000" />
       <workItem from="1554786941651" duration="12348000" />
       <workItem from="1554852295527" duration="38000" />
-      <workItem from="1554862980260" duration="16973000" />
+      <workItem from="1554862980260" duration="17932000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82740000" />
+    <option name="totallyTimeSpent" value="83699000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -300,14 +327,14 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30333033" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4608461" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30333033" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4608461" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32943293" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.15121512" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.17281727" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.30783078" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="CMake" order="12" />
@@ -328,8 +355,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.c</url>
-          <line>183</line>
+          <line>184</line>
           <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.c</url>
+          <line>211</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/tree/binary_tree.c</url>
+          <line>379</line>
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -461,20 +498,6 @@
     <entry file="file://$PROJECT_DIR$/tree/tree.c">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tree/binary_tree.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="58" column="53" lean-forward="true" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tree/binary_tree.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="13" column="56" lean-forward="true" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stack/stack.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -499,13 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/list/list.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="871">
-          <caret line="121" column="40" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pool/pool.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -522,13 +538,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/queue/circle_queue.c">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stack/stack.c">
       <provider selected="true" editor-type-id="text-editor">
@@ -558,27 +567,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/list/list.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3249">
-          <caret line="171" column="1" lean-forward="true" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
-          <folding>
-            <element signature="e#38#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stack/linked_stack.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
           <caret line="28" column="70" lean-forward="true" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="24" column="3" lean-forward="true" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -596,13 +588,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/list/list.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="24" column="3" lean-forward="true" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/list/list.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" selection-start-line="25" selection-end-line="28" selection-end-column="65" />
+          <folding>
+            <element signature="e#38#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tree/binary_tree.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="44" column="89" lean-forward="true" selection-start-line="44" selection-start-column="89" selection-end-line="44" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/adt.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/adt.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="30" lean-forward="true" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="192" lean-forward="true" selection-start-line="192" selection-end-line="192" />
+        <state relative-caret-position="325">
+          <caret line="211" column="41" selection-start-line="211" selection-start-column="41" selection-end-line="211" selection-end-column="41" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tree/binary_tree.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>

@@ -6,6 +6,7 @@
 #include "stack/stack.h"
 #include "stack/linked_stack.h"
 #include "queue/queue.h"
+#include "tree/binary_tree.h"
 
 void print_data_int(_p_adt p_ad);
 
@@ -198,7 +199,28 @@ static void queue_test() {
 
 static void tree_test() {
 
+    unsigned size = 10;
+    _p_adt p_ad = get_ads(size, sizeof(int));
+    int *p_int_array = alloc_memory(sizeof(int) * size);
 
+    for (int j = 0; j < size; ++j) {
+
+        p_ad[j].data = p_int_array + j;
+        *(p_int_array + j) = j * 2;
+    }
+
+    _p_binary_tree p_binary_tree = binary_tree_init(p_ad, NULL, NULL, NULL, NULL);
+
+    _p_binary_tree_node root = binary_tree_find_ad(p_binary_tree, p_ad);
+
+    if (root != NULL) {
+
+        print_data_int(root->p_ad);
+        binary_tree_add_left_child_ad(p_binary_tree, root, p_ad + 1);
+        binary_tree_add_right_child_ad(p_binary_tree, root, p_ad + 2);
+
+        return;
+    }
 }
 
 unsigned count_test(unsigned x) {
@@ -222,8 +244,9 @@ int main() {
 //    list_test();
 //    linked_list_test();
 //    stack_test();
+//    queue_test();
 
-    queue_test();
+    tree_test();
     destroy_pool(pool);
 
 //    unsigned count = count_test(262094);//max value 262094 for iteration

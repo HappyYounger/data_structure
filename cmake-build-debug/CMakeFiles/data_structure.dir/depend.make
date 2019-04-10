@@ -27,6 +27,7 @@ CMakeFiles/data_structure.dir/main.c.o: ../pool/pool.h
 CMakeFiles/data_structure.dir/main.c.o: ../queue/queue.h
 CMakeFiles/data_structure.dir/main.c.o: ../stack/linked_stack.h
 CMakeFiles/data_structure.dir/main.c.o: ../stack/stack.h
+CMakeFiles/data_structure.dir/main.c.o: ../tree/binary_tree.h
 
 CMakeFiles/data_structure.dir/pool/pool.c.o: ../pool/pool.c
 CMakeFiles/data_structure.dir/pool/pool.c.o: ../pool/pool.h
