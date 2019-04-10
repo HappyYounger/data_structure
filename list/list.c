@@ -170,7 +170,6 @@ int list_append(_p_list p_list, _p_adt p_ad) {
 void list_clear(_p_list p_list) {
 
     p_list->size = 0;
-
 }
 
 int list_move(_p_list p_list, unsigned from, unsigned to) {

@@ -11,11 +11,11 @@ void pool_test() {
 
 
     _p_adt p_ad_array = pick_some_ad(3);
-//    int *p_int_array = alloc_memory(p_memory_pool, sizeof(int) * 3);
+    int *p_int_array = alloc_memory(p_memory_pool, sizeof(int) * 3);
 
 
     free_data(p_memory_pool, p_ad_array);
-//    free_data(p_memory_pool, p_int_array);
+    free_data(p_memory_pool, p_int_array);
 }
 
 
