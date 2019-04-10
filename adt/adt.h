@@ -53,7 +53,7 @@ typedef void (*_p_func_print)(_p_adt p_ad);
  * @param p_ad2
  * @return p_ad1
  */
-_p_adt adt_def_assigns(_p_adt p_ad1, _p_adt p_ad2);
+_p_adt adt_def_assigns(_p_adt* pp_ad1, _p_adt p_ad2);
 
 
 /**
@@ -83,11 +83,11 @@ bool adt_bits_equals(_p_adt p_ad1, _p_adt p_ad2);
 
 /**
  * 从系统pool中取number个对象，每个对象bytes个字节
- * @param number 对象个数
+ * @param size 对象个数
  * @param bytes 字节数
  * @return 第一个adt的地址
  */
-_p_adt get_ad_array(unsigned number);
+_p_adt get_ads(unsigned size, unsigned bytes);
 
 _p_func_adt_assigns assigns_func(_p_func_adt_assigns adt_assigns);
 

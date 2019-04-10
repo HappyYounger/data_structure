@@ -2,6 +2,7 @@
 #include "global.h"
 #include "pool/pool.h"
 #include "list/list.h"
+#include "list/linked_list.h"
 
 void print_data_int(_p_adt p_ad);
 
@@ -10,7 +11,7 @@ void print_data_int_array(_p_adt p_ad, unsigned size);
 void pool_test() {
 
     unsigned n = 3;
-    _p_adt p_ad_array = get_ad_array(n);
+    _p_adt p_ad_array = get_ads(n, sizeof(int));
 
     int *p_int_array = alloc_memory(sizeof(int) * n);
 
@@ -28,13 +29,12 @@ void pool_test() {
     free_data(p_int_array);
 }
 
-
 static void list_test() {
 
     unsigned size = 4;
     _p_list p_list = list_init(16, NULL, NULL, NULL, NULL);
 
-    _p_adt p_ad = get_ad_array(size);
+    _p_adt p_ad = get_ads(size, sizeof(int));
     int *p_int_array = alloc_memory(sizeof(int) * size);
 
     for (int j = 0; j < size; ++j) {
@@ -62,6 +62,44 @@ static void list_test() {
     list_clear(p_list);
 }
 
+static void linked_list_test() {
+
+    unsigned size = 4;
+
+    _p_linked_list p_linked_list = linked_list_init(NULL, NULL, NULL, NULL);
+    _p_adt p_ad = get_ads(size, sizeof(int));
+
+    int *p_int_array = alloc_memory(sizeof(int) * size);
+
+    for (int j = 0; j < size; ++j) {
+
+        p_ad[j].data = p_int_array + j;
+        *(p_int_array + j) = j * 2;
+    }
+
+    for (int i = 0; i < 1; ++i) {
+
+        linked_list_insert_first_after(p_linked_list, p_ad + i);
+    }
+
+    linked_list_insert_last_before(p_linked_list, p_ad + 2);
+    linked_list_insert_first_before(p_linked_list, p_ad + 1);
+    linked_list_insert_last_after(p_linked_list, p_ad + 3);
+
+    _p_adt p_ad1 = get_ads(1, sizeof(int));
+    int *p_int1 = alloc_memory(sizeof(int));
+    *p_int1 = 100;
+    p_ad1->data = p_int1;
+
+    linked_list_insert_after(p_linked_list, p_ad + 1, p_ad1);
+
+    linked_list_remove(p_linked_list, p_ad1);
+
+    print_linked_list(p_linked_list, print_data_int);
+    return;
+
+}
+
 static void tree_test() {
 
 
@@ -84,9 +122,10 @@ int main() {
 
     _p_memory_pool pool = init_pool();
 
-    pool_test();
-    list_test();
+//    pool_test();
+//    list_test();
 
+    linked_list_test();
     destroy_pool(pool);
 
 //    unsigned count = count_test(262094);//max value 262094 for iteration

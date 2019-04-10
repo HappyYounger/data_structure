@@ -62,7 +62,7 @@ _p_linked_list_node linked_list_insert_before(_p_linked_list p_linked_list,
 
             _p_linked_list_node p_linked_list_node = alloc_memory(sizeof(struct linked_list_node));
 
-            p_linked_list_node->p_ad = p_ad;
+            adt_def_assigns(&p_linked_list_node->p_ad, p_ad);
 
             p_linked_list_node->p_next = p_des_node;
             p_linked_list_node->p_previous = p_des_node->p_previous;
@@ -88,7 +88,7 @@ _p_linked_list_node linked_list_insert_after(_p_linked_list p_linked_list,
 
             _p_linked_list_node p_linked_list_node = alloc_memory(sizeof(struct linked_list_node));
 
-            p_linked_list_node->p_ad = p_ad;
+            adt_def_assigns(&p_linked_list_node->p_ad, p_ad);
 
             p_linked_list_node->p_next = p_des_node->p_next;
             p_linked_list_node->p_previous = p_des_node;
@@ -110,7 +110,7 @@ _p_linked_list_node linked_list_insert_first_before(_p_linked_list p_linked_list
 
         _p_linked_list_node p_linked_list_node = alloc_memory(sizeof(_linked_list_node));
 
-        p_linked_list_node->p_ad = p_ad;
+        adt_def_assigns(&p_linked_list_node->p_ad, p_ad);
         if (p_linked_list->first == NULL) {
 
             p_linked_list->first = p_linked_list->last = p_linked_list_node;
@@ -136,17 +136,23 @@ _p_linked_list_node linked_list_insert_first_after(_p_linked_list p_linked_list,
 
         _p_linked_list_node p_linked_list_node = alloc_memory(sizeof(_linked_list_node));
 
-        p_linked_list_node->p_ad = p_ad;
+        adt_def_assigns(&p_linked_list_node->p_ad, p_ad);
+
         if (p_linked_list->first == NULL) {
 
             p_linked_list->first = p_linked_list->last = p_linked_list_node;
-
             p_linked_list_node->p_previous = p_linked_list_node->p_next = NULL;
         } else {
 
             p_linked_list_node->p_previous = p_linked_list->first;
             p_linked_list_node->p_next = p_linked_list->first->p_next;
-            p_linked_list_node->p_next->p_previous = p_linked_list_node;
+            if (p_linked_list_node->p_next != NULL) {
+
+                p_linked_list_node->p_next->p_previous = p_linked_list_node;
+            } else{
+
+                p_linked_list->last = p_linked_list_node;
+            }
             p_linked_list->first->p_next = p_linked_list_node;
         }
         ++p_linked_list->size;
@@ -162,7 +168,8 @@ _p_linked_list_node linked_list_insert_last_before(_p_linked_list p_linked_list,
 
         _p_linked_list_node p_linked_list_node = alloc_memory(sizeof(_linked_list_node));
 
-        p_linked_list_node->p_ad = p_ad;
+        adt_def_assigns(&p_linked_list_node->p_ad, p_ad);
+
         if (p_linked_list->last == NULL) {
 
             p_linked_list->first = p_linked_list->last = p_linked_list_node;
@@ -172,7 +179,13 @@ _p_linked_list_node linked_list_insert_last_before(_p_linked_list p_linked_list,
 
             p_linked_list_node->p_next = p_linked_list->last;
             p_linked_list_node->p_previous = p_linked_list->last->p_previous;
-            p_linked_list_node->p_previous->p_next = p_linked_list_node;
+            if (p_linked_list_node->p_previous != NULL) {
+
+                p_linked_list_node->p_previous->p_next = p_linked_list_node;
+            } else{
+
+                p_linked_list->first = p_linked_list_node;
+            }
             p_linked_list->last->p_previous = p_linked_list_node;
         }
         ++p_linked_list->size;
@@ -188,7 +201,8 @@ _p_linked_list_node linked_list_insert_last_after(_p_linked_list p_linked_list, 
 
         _p_linked_list_node p_linked_list_node = alloc_memory(sizeof(_linked_list_node));
 
-        p_linked_list_node->p_ad = p_ad;
+        adt_def_assigns(&p_linked_list_node->p_ad, p_ad);
+
         if (p_linked_list->last == NULL) {
 
             p_linked_list->first = p_linked_list->last = p_linked_list_node;
@@ -244,4 +258,17 @@ _p_linked_list linked_list_clear(_p_linked_list p_linked_list) {
     }
 
     return p_linked_list;
+}
+
+void print_linked_list(_p_linked_list p_linked_list, _p_func_print p_func_print) {
+
+    if (p_linked_list != NULL) {
+
+        _p_linked_list_node p_current_node = p_linked_list->first;
+        while (p_current_node != NULL) {
+
+            p_func_print(p_current_node->p_ad);
+            p_current_node = p_current_node->p_next;
+        }
+    }
 }

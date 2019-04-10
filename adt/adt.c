@@ -9,10 +9,10 @@
 
 extern _p_memory_pool p_memory_pool;
 
-_p_adt adt_def_assigns(_p_adt p_ad1, _p_adt p_ad2) {
+_p_adt adt_def_assigns(_p_adt* pp_ad1, _p_adt p_ad2) {
 
-    p_ad1 = p_ad2;
-    return p_ad1;
+    *pp_ad1 = p_ad2;
+    return *pp_ad1;
 }
 
 _p_adt adt_bits_assigns(_p_adt p_ad1, _p_adt p_ad2) {
@@ -57,11 +57,16 @@ bool adt_bits_equals(_p_adt p_ad1, _p_adt p_ad2) {
     return false;
 }
 
-_p_adt get_ad_array(unsigned number) {
+_p_adt get_ads(unsigned size, unsigned bytes) {
 
-    if (number > 0) {
+    if (size > 0) {
 
-        _p_adt p_ad = alloc_memory(sizeof(_adt) * number);
+        _p_adt p_ad = alloc_memory(sizeof(_adt) * size);
+
+        for (int i = 0; i < size; ++i) {
+
+            (p_ad + i)->bytes = bytes;
+        }
         return p_ad;
     }
 

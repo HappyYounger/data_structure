@@ -56,4 +56,6 @@ _p_linked_list linked_list_remove(_p_linked_list p_linked_list, _p_adt p_ad);
 
 _p_linked_list linked_list_clear(_p_linked_list p_linked_list);
 
+void print_linked_list(_p_linked_list p_linked_list, _p_func_print p_func_print);
+
 #endif //DATA_STRUCTURE_LINKED_LIST_H

@@ -20,6 +20,7 @@ CMakeFiles/data_structure.dir/list/list.c.o: ../pool/pool.h
 
 CMakeFiles/data_structure.dir/main.c.o: ../adt/adt.h
 CMakeFiles/data_structure.dir/main.c.o: ../global.h
+CMakeFiles/data_structure.dir/main.c.o: ../list/linked_list.h
 CMakeFiles/data_structure.dir/main.c.o: ../list/list.h
 CMakeFiles/data_structure.dir/main.c.o: ../main.c
 CMakeFiles/data_structure.dir/main.c.o: ../pool/pool.h

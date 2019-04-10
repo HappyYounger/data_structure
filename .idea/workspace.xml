@@ -17,28 +17,14 @@
       <change beforePath="$PROJECT_DIR$/adt/adt.h" beforeDir="false" afterPath="$PROJECT_DIR$/adt/adt.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/C.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/adt/adt.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/adt/adt.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/global.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/global.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/list/linked_list.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/list/linked_list.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/list/list.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/list/list.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/main.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/pool/pool.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/pool/pool.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/queue/queue.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/queue/queue.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/stack/linked_stack.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/stack/linked_stack.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/stack/stack.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/stack/stack.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/tree/binary_tree.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/data_structure.dir/tree/binary_tree.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/data_structure" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/data_structure" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.c" beforeDir="false" afterPath="$PROJECT_DIR$/global.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.h" beforeDir="false" afterPath="$PROJECT_DIR$/global.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/linked_list.c" beforeDir="false" afterPath="$PROJECT_DIR$/list/linked_list.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/list/list.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/list.h" beforeDir="false" afterPath="$PROJECT_DIR$/list/list.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/linked_list.h" beforeDir="false" afterPath="$PROJECT_DIR$/list/linked_list.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pool/pool.c" beforeDir="false" afterPath="$PROJECT_DIR$/pool/pool.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pool/pool.h" beforeDir="false" afterPath="$PROJECT_DIR$/pool/pool.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/queue/queue.c" beforeDir="false" afterPath="$PROJECT_DIR$/queue/queue.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stack/linked_stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/stack/linked_stack.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stack/stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/stack/stack.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree/binary_tree.c" beforeDir="false" afterPath="$PROJECT_DIR$/tree/binary_tree.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,10 +53,10 @@
         <counts>
           <entry key="Makefile" value="1" />
           <entry key="Makefile2" value="1" />
-          <entry key="c" value="129" />
+          <entry key="c" value="134" />
           <entry key="cbp" value="1" />
           <entry key="cmake" value="1" />
-          <entry key="h" value="104" />
+          <entry key="h" value="107" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -78,15 +64,15 @@
         <counts>
           <entry key="CMakeCache.txt" value="1" />
           <entry key="CMakeLists.txt" value="2" />
-          <entry key="ObjectiveC" value="233" />
+          <entry key="ObjectiveC" value="241" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="11808" />
-          <entry key="h" value="4665" />
-          <entry key="m" value="59" />
+          <entry key="c" value="12469" />
+          <entry key="h" value="4726" />
+          <entry key="m" value="126" />
           <entry key="txt" value="21" />
         </counts>
       </usages-collector>
@@ -94,31 +80,13 @@
         <counts>
           <entry key="CMakeLists.txt" value="21" />
           <entry key="Doxygen file" value="21" />
-          <entry key="ObjectiveC" value="16511" />
+          <entry key="ObjectiveC" value="17300" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queue/queue.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queue/circle_queue.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/queue/circle_queue.c">
           <provider selected="true" editor-type-id="text-editor" />
@@ -128,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/pool/pool.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="74" column="19" lean-forward="true" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
+              <caret line="74" column="19" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -137,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/pool/pool.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -145,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/list/list.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+            <state relative-caret-position="871">
+              <caret line="121" column="40" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -155,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/list/list.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3496">
-              <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
+              <caret line="184" selection-start-line="184" selection-end-line="184" />
               <folding>
                 <element signature="e#38#55#0" expanded="true" />
               </folding>
@@ -166,26 +134,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/list/linked_list.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="415">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/list/linked_list.c">
+        <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="112">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queue/queue.c">
+        <entry file="file://$PROJECT_DIR$/list/linked_list.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="56" column="24" lean-forward="true" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+            <state relative-caret-position="201">
+              <caret line="168" selection-start-line="168" selection-end-line="168" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adt/adt.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adt/adt.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -204,24 +193,24 @@
         <option value="$PROJECT_DIR$/queue/circle_queue.h" />
         <option value="$PROJECT_DIR$/tree/tree.h" />
         <option value="$PROJECT_DIR$/tree/binary_tree.h" />
-        <option value="$PROJECT_DIR$/list/linked_list.h" />
         <option value="$PROJECT_DIR$/stack/stack.h" />
         <option value="$PROJECT_DIR$/stack/linked_stack.h" />
         <option value="$PROJECT_DIR$/queue/queue.h" />
-        <option value="$PROJECT_DIR$/adt/adt.h" />
         <option value="$PROJECT_DIR$/pool/pool.h" />
-        <option value="$PROJECT_DIR$/adt/adt.c" />
         <option value="$PROJECT_DIR$/global.h" />
         <option value="$PROJECT_DIR$/global.c" />
         <option value="$PROJECT_DIR$/list/list.h" />
         <option value="$PROJECT_DIR$/list/list.c" />
         <option value="$PROJECT_DIR$/stack/stack.c" />
         <option value="$PROJECT_DIR$/pool/pool.c" />
-        <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/tree/binary_tree.c" />
         <option value="$PROJECT_DIR$/stack/linked_stack.c" />
         <option value="$PROJECT_DIR$/queue/queue.c" />
+        <option value="$PROJECT_DIR$/list/linked_list.h" />
+        <option value="$PROJECT_DIR$/adt/adt.h" />
+        <option value="$PROJECT_DIR$/adt/adt.c" />
         <option value="$PROJECT_DIR$/list/linked_list.c" />
+        <option value="$PROJECT_DIR$/main.c" />
       </list>
     </option>
   </component>
@@ -354,12 +343,12 @@
       <workItem from="1554696927037" duration="23558000" />
       <workItem from="1554786941651" duration="12348000" />
       <workItem from="1554852295527" duration="38000" />
-      <workItem from="1554862980260" duration="10621000" />
+      <workItem from="1554862980260" duration="15359000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76388000" />
+    <option name="totallyTimeSpent" value="81126000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -374,19 +363,19 @@
     <frame x="0" y="0" width="1920" height="1200" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24036403" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24036403" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20342034" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.35823584" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25202522" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4320432" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32943293" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32943293" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.16561656" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.39963996" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="CMake" order="12" />
@@ -406,59 +395,59 @@
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="p_memory_pool" language="ObjectiveC" />
-        <watch expression="(1 &lt; i) * POOL_BASE_SIZE" language="ObjectiveC" />
+        <watch expression="p_int_array[0]" language="ObjectiveC" />
+        <watch expression="p_int_array[1]" language="ObjectiveC" />
+        <watch expression="p_int_array[2]" language="ObjectiveC" />
+        <watch expression="p_int_array[3]" language="ObjectiveC" />
+        <watch expression="*((int*)p_linked_list-&gt;first-&gt;p_ad-&gt;data)" language="ObjectiveC" />
+        <watch expression="*((int*)p_linked_list-&gt;first-&gt;p_next-&gt;p_ad-&gt;data)" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>(1 &lt; i) * POOL_BASE_SIZE</expression-string>
+        <expression-string>*((int*)p_linked_list-&gt;first-&gt;p_next-&gt;p_ad-&gt;data)</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>sizeof(list)</expression-string>
+        <expression-string>*((int*)p_linked_list-&gt;first-&gt;p_ad-&gt;data)</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>sizeof(_list)</expression-string>
+        <expression-string>p_linked_list-&gt;first-&gt;p_ad-&gt;data</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>sizeof(_p_adt)</expression-string>
+        <expression-string>p_int_array[3]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>p_memory_pool-&gt;p_table_list-&gt;table_array[i]-&gt;p_rec_first</expression-string>
+        <expression-string>p_int_array[2]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>p_memory_pool-&gt;pool_array[i] + p_alloc_rec-&gt;block_index * BLOCK_SIZE</expression-string>
+        <expression-string>p_int_array[1]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>p_memory_pool-&gt;p_table_list-&gt;table_array[i]</expression-string>
+        <expression-string>p_int_array[0]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>p_memory_pool-&gt;p_table_list-&gt;table_array</expression-string>
+        <expression-string>p_int_array + 1</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>p_alloc_rec-&gt;block_index</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>p_memory_pool-&gt;pool_array[0]</expression-string>
+        <expression-string>*((int*)p_linked_list-&gt;first-&gt;p_next-&gt;p_next-&gt;p_ad-&gt;data)</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -505,27 +494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="86" column="19" lean-forward="true" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adt/adt.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="53" column="20" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1046">
-          <caret line="19" column="45" lean-forward="true" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -632,45 +600,69 @@
     <entry file="file://$PROJECT_DIR$/pool/pool.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="74" column="19" lean-forward="true" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
+          <caret line="74" column="19" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pool/pool.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/list/list.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/list/list.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3496">
-          <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
           <folding>
             <element signature="e#38#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/list/list.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="871">
+          <caret line="121" column="40" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/list/linked_list.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="415">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/adt.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adt/adt.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/list/linked_list.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="201">
+          <caret line="168" selection-start-line="168" selection-end-line="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
