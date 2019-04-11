@@ -5,6 +5,45 @@
 #include "binary_tree.h"
 #include <stddef.h>
 
+static _p_binary_tree_node
+update_tree_ancestor_node(_p_binary_tree_node parent, _p_binary_tree_node child, bool which) {
+
+    if (parent != NULL && child != NULL) {
+
+        if (which) {
+
+            parent->p_left_child = child;
+
+        } else {
+
+            parent->p_right_child = child;
+        }
+        child->p_parent = parent;
+
+        if (parent->degree < 2) {
+
+            ++parent->degree;
+        }
+
+        _p_binary_tree_node clone_child = child;
+
+        while (clone_child->p_parent != NULL) {
+
+            if (clone_child->depth >= clone_child->p_parent->depth) {
+
+                clone_child->p_parent->depth = clone_child->depth + 1;
+                clone_child = clone_child->p_parent;
+            } else {
+
+                break;
+            }
+        }
+
+        return child;
+    }
+    return NULL;
+}
+
 _p_binary_tree binary_tree_init(_p_adt p_ad_root,
                                 _p_func_adt_assigns adt_assigns,
                                 _p_func_adt_bits_assigns bits_assigns,
@@ -21,9 +60,10 @@ _p_binary_tree binary_tree_init(_p_adt p_ad_root,
         p_binary_tree->adt_bits_equals = bits_assigns_func(bits_equals);
 
         p_binary_tree->root = alloc_memory(sizeof(_binary_tree_node));
-
         p_binary_tree->adt_assigns(&p_binary_tree->root->p_ad, p_ad_root);
 
+        p_binary_tree->root->depth = 1;
+        p_binary_tree->root->degree = 0;
         return p_binary_tree;
     }
 
@@ -34,9 +74,7 @@ _p_binary_tree_node binary_tree_add_left_child_node(_p_binary_tree_node p_parent
 
     if (p_parent != NULL && p_left_node != NULL) {
 
-        p_parent->p_left_child = p_left_node;
-        p_left_node->p_parent = p_parent;
-        return p_parent;
+        return update_tree_ancestor_node(p_parent, p_left_node, true);
     }
 
     return NULL;
@@ -46,27 +84,58 @@ _p_binary_tree_node binary_tree_add_right_child_node(_p_binary_tree_node p_paren
 
     if (p_parent != NULL && p_right_node != NULL) {
 
-        p_parent->p_left_child = p_right_node;
-        p_right_node->p_parent = p_parent;
-        return p_parent;
+        return update_tree_ancestor_node(p_parent, p_right_node, false);
     }
 
     return NULL;
 }
 
-_p_binary_tree_node binary_tree_remove_binary_tree_node(_p_binary_tree_node p_binary_tree_node) {
+_p_binary_tree_node
+binary_tree_remove_binary_tree_node(_p_binary_tree p_binary_tree, _p_binary_tree_node p_binary_tree_node) {
 
     _p_binary_tree_node p_parent = NULL;
-    if (p_binary_tree_node != NULL) {
+
+    if (p_binary_tree != NULL && p_binary_tree_node != NULL) {
 
         p_parent = p_binary_tree_node->p_parent;
 
-        if (p_parent->p_left_child == p_binary_tree_node) {
+        if (p_parent != NULL) {
 
-            p_parent->p_left_child = NULL;
+            _p_binary_tree_node sibling = NULL;
+
+            if (p_parent->p_left_child == p_binary_tree_node) {
+
+                p_parent->p_left_child = NULL;
+                sibling = p_parent->p_right_child;
+            } else {
+
+                p_parent->p_right_child = NULL;
+                sibling = p_parent->p_left_child;
+            }
+
+            --p_parent->degree;
+            if (sibling != NULL) {
+
+                p_parent->depth = sibling->depth + 1;
+
+            } else {
+
+                p_parent->depth = 1;
+            }
+
+            _p_binary_tree_node ancestor = p_parent;
+
+            while (ancestor != NULL) {
+
+                if (ancestor->p_parent != NULL && ancestor->p_parent->depth < ancestor->depth) {
+
+                    ancestor->p_parent->depth = ancestor->depth + 1;
+                    ancestor = ancestor->p_parent;
+                }
+            }
         } else {
 
-            p_parent->p_right_child = NULL;
+            p_binary_tree->root = NULL;
         }
     }
 
@@ -81,10 +150,7 @@ _p_binary_tree_node binary_tree_add_left_child_ad(_p_binary_tree p_binary_tree, 
         _p_binary_tree_node p_binary_tree_node = binary_tree_make_node(p_binary_tree, p_ad);
         if (p_binary_tree_node != NULL) {
 
-            p_parent->p_left_child = p_binary_tree_node;
-            p_binary_tree_node->p_parent = p_parent;
-
-            return p_binary_tree_node;
+            return update_tree_ancestor_node(p_parent, p_binary_tree_node, true);
         }
     }
 
@@ -99,10 +165,7 @@ _p_binary_tree_node binary_tree_add_right_child_ad(_p_binary_tree p_binary_tree,
         _p_binary_tree_node p_binary_tree_node = binary_tree_make_node(p_binary_tree, p_ad);
         if (p_binary_tree_node != NULL) {
 
-            p_parent->p_right_child = p_binary_tree_node;
-            p_binary_tree_node->p_parent = p_parent;
-
-            return p_binary_tree_node;
+            return update_tree_ancestor_node(p_parent, p_binary_tree_node, false);
         }
     }
 
@@ -112,7 +175,7 @@ _p_binary_tree_node binary_tree_add_right_child_ad(_p_binary_tree p_binary_tree,
 _p_binary_tree_node binary_tree_remove_binary_tree_ad(_p_binary_tree p_binary_tree, _p_adt p_ad) {
 
     _p_binary_tree_node p_binary_tree_node = binary_tree_find_ad(p_binary_tree_node, p_ad);
-    binary_tree_remove_binary_tree_node(p_binary_tree_node);
+    binary_tree_remove_binary_tree_node(p_binary_tree, p_binary_tree_node);
     return p_binary_tree_node->p_parent;
 }
 
@@ -244,14 +307,14 @@ static _p_binary_tree_node *in_order_traverse_helper(_p_binary_tree_node *p_bina
 
     if (p_binary_tree_node->p_left_child != NULL) {
 
-        pre_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node->p_left_child);
+        in_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node->p_left_child);
     }
 
     p_binary_tree_node_array[index++] = p_binary_tree_node;
 
     if (p_binary_tree_node->p_right_child != NULL) {
 
-        pre_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node->p_right_child);
+        in_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node->p_right_child);
     }
 
     return p_binary_tree_node_array;
@@ -264,12 +327,12 @@ static _p_binary_tree_node *post_order_traverse_helper(_p_binary_tree_node *p_bi
 
     if (p_binary_tree_node->p_left_child != NULL) {
 
-        pre_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node->p_left_child);
+        post_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node->p_left_child);
     }
 
     if (p_binary_tree_node->p_right_child != NULL) {
 
-        pre_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node->p_right_child);
+        post_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node->p_right_child);
     }
 
     p_binary_tree_node_array[index++] = p_binary_tree_node;
@@ -285,6 +348,8 @@ _p_binary_tree_node *pre_order_traverse(_p_binary_tree_node p_binary_tree_node) 
         _p_binary_tree_node *p_binary_tree_node_array =
                 alloc_memory(sizeof(_p_binary_tree_node) * count);
 
+        p_binary_tree_node_array[++count] = NULL;
+
         return pre_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node);
     }
 
@@ -299,6 +364,8 @@ _p_binary_tree_node *in_order_traverse(_p_binary_tree_node p_binary_tree_node) {
         _p_binary_tree_node *p_binary_tree_node_array =
                 alloc_memory(sizeof(_p_binary_tree_node) * count);
 
+        p_binary_tree_node_array[++count] = NULL;
+
         return in_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node);
     }
 
@@ -312,6 +379,8 @@ _p_binary_tree_node *post_order_traverse(_p_binary_tree_node p_binary_tree_node)
 
         _p_binary_tree_node *p_binary_tree_node_array =
                 alloc_memory(sizeof(_p_binary_tree_node) * count);
+
+        p_binary_tree_node_array[++count] = NULL;
 
         return post_order_traverse_helper(p_binary_tree_node_array, p_binary_tree_node);
     }
@@ -378,6 +447,8 @@ _p_binary_tree_node binary_tree_make_node(_p_binary_tree p_binary_tree, _p_adt p
 
         _p_binary_tree_node p_binary_tree_node = alloc_memory(sizeof(_binary_tree_node));
 
+        p_binary_tree_node->depth = 1;
+        p_binary_tree_node->degree = 0;
         p_binary_tree->adt_assigns(&p_binary_tree_node->p_ad, p_ad);
         p_binary_tree_node->p_parent = p_binary_tree_node->p_left_child = p_binary_tree_node->p_right_child = NULL;
 

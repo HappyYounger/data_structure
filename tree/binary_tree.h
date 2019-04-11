@@ -40,7 +40,7 @@ _p_binary_tree_node binary_tree_add_left_child_node(_p_binary_tree_node p_parent
 
 _p_binary_tree_node binary_tree_add_right_child_node(_p_binary_tree_node p_parent, _p_binary_tree_node p_right_node);
 
-_p_binary_tree_node binary_tree_remove_binary_tree_node(_p_binary_tree_node p_binary_tree_node);
+_p_binary_tree_node binary_tree_remove_binary_tree_node(_p_binary_tree p_binary_tree, _p_binary_tree_node p_binary_tree_node);
 
 _p_binary_tree_node binary_tree_add_left_child_ad(_p_binary_tree p_binary_tree, _p_binary_tree_node p_parent,
                                                   _p_adt p_ad);

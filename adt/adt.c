@@ -9,7 +9,7 @@
 
 extern _p_memory_pool p_memory_pool;
 
-_p_adt adt_def_assigns(_p_adt* pp_ad1, _p_adt p_ad2) {
+_p_adt adt_def_assigns(_p_adt *pp_ad1, _p_adt p_ad2) {
 
     *pp_ad1 = p_ad2;
     return *pp_ad1;
@@ -61,10 +61,11 @@ _p_adt get_ads(unsigned size, unsigned bytes) {
 
     if (size > 0) {
 
-        _p_adt p_ad = alloc_memory(sizeof(_adt) * size);
+        _p_adt p_ad = alloc_memory((sizeof(_adt) + bytes) * size);
 
         for (int i = 0; i < size; ++i) {
 
+            (p_ad + i)->data = p_ad + sizeof(_adt) * size + i * bytes;
             (p_ad + i)->bytes = bytes;
         }
         return p_ad;

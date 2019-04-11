@@ -17,20 +17,14 @@ void pool_test() {
     unsigned n = 3;
     _p_adt p_ad_array = get_ads(n, sizeof(int));
 
-    int *p_int_array = alloc_memory(sizeof(int) * n);
-
     for (int i = 0; i < n; ++i) {
 
-        p_int_array[i] = i * 2;
-        p_ad_array[i].data = p_int_array + i;
-        p_ad_array[i].bytes = sizeof(int);
+        *(int *) p_ad_array[i].data = i * 2;
     }
-
 
     print_data_int_array(p_ad_array, n);
 
     free_data(p_ad_array);
-    free_data(p_int_array);
 }
 
 static void list_test() {
@@ -39,12 +33,10 @@ static void list_test() {
     _p_list p_list = list_init(16, NULL, NULL, NULL, NULL);
 
     _p_adt p_ad = get_ads(size, sizeof(int));
-    int *p_int_array = alloc_memory(sizeof(int) * size);
 
     for (int j = 0; j < size; ++j) {
 
-        p_ad[j].data = p_int_array + j;
-        *(p_int_array + j) = j * 2;
+        *(int *) p_ad[j].data = j;
     }
 
     for (int i = 0; i < 3; ++i) {
@@ -140,12 +132,10 @@ static void linked_stack_test() {
 
     unsigned size = 4;
     _p_adt p_ad = get_ads(size, sizeof(int));
-    int *p_int_array = alloc_memory(sizeof(int) * size);
 
     for (int j = 0; j < size; ++j) {
 
-        p_ad[j].data = p_int_array + j;
-        *(p_int_array + j) = j * 2;
+        *(int *) p_ad[j].data = j * 2;
     }
 
     linked_stack_push(p_stack, p_ad);
@@ -168,12 +158,10 @@ static void queue_test() {
 
     unsigned size = 4;
     _p_adt p_ad = get_ads(size, sizeof(int));
-    int *p_int_array = alloc_memory(sizeof(int) * size);
 
     for (int j = 0; j < size; ++j) {
 
-        p_ad[j].data = p_int_array + j;
-        *(p_int_array + j) = j * 2;
+        *(int *) p_ad[j].data = j * 2;
     }
 
     _p_queue p_queue = queue_init(NULL, NULL);
@@ -189,7 +177,6 @@ static void queue_test() {
     p_ad1 = queue_dequeue(p_queue);
     print_data_int(p_ad1);
 
-
     queue_enqueue(p_queue, p_ad + 1);
 
     p_ad1 = queue_dequeue(p_queue);
@@ -199,14 +186,12 @@ static void queue_test() {
 
 static void tree_test() {
 
-    unsigned size = 10;
+    unsigned size = 5;
     _p_adt p_ad = get_ads(size, sizeof(int));
-    int *p_int_array = alloc_memory(sizeof(int) * size);
 
     for (int j = 0; j < size; ++j) {
 
-        p_ad[j].data = p_int_array + j;
-        *(p_int_array + j) = j * 2;
+        *(int *) p_ad[j].data = j;
     }
 
     _p_binary_tree p_binary_tree = binary_tree_init(p_ad, NULL, NULL, NULL, NULL);
@@ -215,10 +200,23 @@ static void tree_test() {
 
     if (root != NULL) {
 
-        print_data_int(root->p_ad);
-        binary_tree_add_left_child_ad(p_binary_tree, root, p_ad + 1);
-        binary_tree_add_right_child_ad(p_binary_tree, root, p_ad + 2);
+        _p_binary_tree_node node1 = binary_tree_add_left_child_ad(p_binary_tree, root, p_ad + 1);
+        _p_binary_tree_node node2 = binary_tree_add_right_child_ad(p_binary_tree, root, p_ad + 2);
 
+        _p_binary_tree_node node3 = binary_tree_add_left_child_ad(p_binary_tree, node1, p_ad + 3);
+        _p_binary_tree_node node4 = binary_tree_add_right_child_ad(p_binary_tree, node1, p_ad + 4);
+
+//        _p_binary_tree_node *order_node_array = pre_order_traverse(root);
+        _p_binary_tree_node *order_node_array = in_order_traverse(root);
+//        _p_binary_tree_node *order_node_array = post_order_traverse(root);
+
+        unsigned index = 0;
+        while (order_node_array[index] != NULL) {
+
+            print_data_int(order_node_array[index]->p_ad);
+            ++index;
+        }
+        printf("\n");
         return;
     }
 }
@@ -245,7 +243,6 @@ int main() {
 //    linked_list_test();
 //    stack_test();
 //    queue_test();
-
     tree_test();
     destroy_pool(pool);
 

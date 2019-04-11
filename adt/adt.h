@@ -13,8 +13,8 @@
  */
 typedef struct adt {
 
-    void *data;
     unsigned bytes;
+    void *data;
 } _adt, *_p_adt;
 
 /**
