@@ -186,7 +186,7 @@ static void queue_test() {
 
 static void tree_test() {
 
-    unsigned size = 5;
+    unsigned size = 8;
     _p_adt p_ad = get_ads(size, sizeof(int));
 
     for (int j = 0; j < size; ++j) {
@@ -206,9 +206,13 @@ static void tree_test() {
         _p_binary_tree_node node3 = binary_tree_add_left_child_ad(p_binary_tree, node1, p_ad + 3);
         _p_binary_tree_node node4 = binary_tree_add_right_child_ad(p_binary_tree, node1, p_ad + 4);
 
+        _p_binary_tree_node node5 = binary_tree_add_right_child_ad(p_binary_tree, node2, p_ad + 5);
+        _p_binary_tree_node node6 = binary_tree_add_right_child_ad(p_binary_tree, node3, p_ad + 6);
+        _p_binary_tree_node node7 = binary_tree_add_right_child_ad(p_binary_tree, node4, p_ad + 7);
+
 //        _p_binary_tree_node *order_node_array = pre_order_traverse(root);
-        _p_binary_tree_node *order_node_array = in_order_traverse(root);
-//        _p_binary_tree_node *order_node_array = post_order_traverse(root);
+//        _p_binary_tree_node *order_node_array = in_order_traverse(root);
+        _p_binary_tree_node *order_node_array = post_order_traverse(root);
 
         unsigned index = 0;
         while (order_node_array[index] != NULL) {
