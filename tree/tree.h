@@ -8,6 +8,7 @@
 #include "../adt/adt.h"
 #include "../pool/pool.h"
 #include "binary_tree.h"
+#include "../list/list.h"
 
 
 typedef struct tree_node {
@@ -23,18 +24,12 @@ typedef struct tree_node {
 
 typedef struct tree {
 
-    _p_tree_node root;
-    _p_func_adt_assigns adt_assigns;
-    _p_func_adt_equals adt_equals;
-    _p_func_adt_bits_assigns adt_bits_assigns;
-    _p_func_adt_bits_equals adt_bits_equals;
+    _p_tree_node root
 } _tree, *_p_tree;
 
-_p_tree tree_init(_p_adt p_ad_root,
-                  _p_func_adt_assigns adt_assigns,
-                  _p_func_adt_bits_assigns bits_assigns,
-                  _p_func_adt_equals adt_equals,
-                  _p_func_adt_bits_equals bits_equals);
+typedef bool (*equals)(void *, void *);
+
+_p_tree tree_init(_p_adt p_ad_root);
 
 _p_tree_node tree_make_node(_p_tree p_tree, _p_adt p_ad);
 
@@ -48,13 +43,17 @@ _p_tree_node tree_find_ad(_p_tree p_tree, _p_adt p_ad);
 
 _p_tree_node tree_find_next_ad(_p_tree p_tree, _p_tree_node p_tree_node, _p_adt p_ad);
 
-_p_tree_node *tree_breadth_first_traverse(_p_tree p_tree);
+_p_list tree_breadth_first_traverse(_p_tree p_tree);
 
-_p_tree_node *tree_depth_first_traverse(_p_tree p_tree, bool is_root_first);
+_p_list tree_depth_first_traverse(_p_tree p_tree, bool is_root_first);
 
 _p_binary_tree to_binary_tree(_p_tree p_tree);
 
-bool node_on_tree(_p_tree p_tree, _p_tree_node p_tree_node);
+bool tree_existed(_p_tree p_tree, void *data, bool (*equals)(void *, void *));
+
+bool tree_node_existed(_p_tree p_tree, _p_tree_node p_tree_node);
+
+bool tree_ad_existed(_p_tree p_tree, _p_adt p_ad);
 
 
 #endif //DATA_STRUCTURE_TREE_H

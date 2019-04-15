@@ -6,16 +6,13 @@
 #include "queue.h"
 
 
-_p_queue queue_init(_p_func_adt_assigns adt_assigns, _p_func_adt_bits_assigns adt_bits_assigns) {
+_p_queue queue_init() {
 
     _p_queue p_queue = alloc_memory(sizeof(_queue));
 
     if (p_queue != NULL) {
         p_queue->back = p_queue->front = NULL;
         p_queue->size = 0;
-
-        p_queue->adt_assigns = assigns_func(adt_assigns);
-        p_queue->adt_bits_assigns = assigns_func(adt_bits_assigns);
 
         return p_queue;
     }
@@ -28,7 +25,7 @@ _p_queue queue_enqueue(_p_queue p_queue, _p_adt p_ad) {
 
         _p_q_node p_q_node = alloc_memory(sizeof(_q_node));
         p_q_node->next = NULL;
-        p_queue->adt_assigns(&p_q_node->p_ad, p_ad);
+        p_q_node->p_ad = p_ad;
 
         if (p_queue->front == NULL) {
 

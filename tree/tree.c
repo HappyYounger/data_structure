@@ -2,8 +2,11 @@
 // Created by 杨光 on 2019/4/9.
 //
 
+#include <stdio.h>
 #include <stddef.h>
 #include "tree.h"
+#include "../list/linked_list.h"
+#include "../queue/queue.h"
 
 static _p_tree_node update_tree_ancestor_node(_p_tree_node parent, _p_tree_node child) {
 
@@ -49,10 +52,6 @@ static _p_tree sub_tree(_p_tree p_tree, _p_tree_node p_tree_node) {
 
         if (p_sub_tree != NULL) {
 
-            p_sub_tree->adt_bits_assigns = p_tree->adt_bits_assigns;
-            p_sub_tree->adt_assigns = p_tree->adt_assigns;
-            p_sub_tree->adt_bits_equals = p_tree->adt_bits_equals;
-            p_sub_tree->adt_equals = p_tree->adt_equals;
             p_sub_tree->root = p_tree_node;
 
             return p_sub_tree;
@@ -62,13 +61,10 @@ static _p_tree sub_tree(_p_tree p_tree, _p_tree_node p_tree_node) {
     return NULL;
 }
 
-_p_tree tree_init(_p_adt p_ad_root,
-                  _p_func_adt_assigns adt_assigns,
-                  _p_func_adt_bits_assigns bits_assigns,
-                  _p_func_adt_equals adt_equals,
-                  _p_func_adt_bits_equals bits_equals) {
+_p_tree tree_init(_p_adt p_ad_root) {
 
     _p_tree p_tree = alloc_memory(sizeof(_tree));
+
 
     if (p_tree != NULL) {
 
@@ -76,7 +72,7 @@ _p_tree tree_init(_p_adt p_ad_root,
 
         if (p_tree_node != NULL) {
 
-            p_tree->adt_bits_assigns = p_tree_node;
+            p_tree->root = p_tree_node;
             return p_tree;
         }
     }
@@ -92,7 +88,7 @@ _p_tree_node tree_make_node(_p_tree p_tree, _p_adt p_ad) {
 
         if (p_tree_node != NULL) {
 
-            p_tree->adt_assigns(&p_tree_node->p_ad, p_ad);
+            p_tree_node->p_ad = p_ad;
             p_tree_node->degree = 0;
             p_tree_node->depth = 1;
             p_tree_node->p_parent = p_tree_node->p_left_sibling = p_tree_node->p_rigth_sibling = p_tree_node->p_first_child = NULL;
@@ -131,33 +127,133 @@ _p_tree tree_remove_ad(_p_tree p_tree, _p_adt p_ad) {
 
 _p_tree_node tree_find_ad(_p_tree p_tree, _p_adt p_ad) {
 
+    if (adt_equals(p_tree->root->p_ad, p_ad)) {
 
-    if (p_tree->adt_equals(p_tree->root->p_ad, p_ad)) {
+        _p_tree_node sibling = p_tree->root->p_rigth_sibling;
 
-        return p_tree->root;
-    } else {
+        while (sibling != NULL) {
 
-        _p_tree_node child = p_tree->root->p_first_child;
-        while (child != NULL) {
+            _p_tree p_sibling_tree = sub_tree(p_tree, sibling);
+            _p_tree_node p_tree_node = tree_find_ad(p_sibling_tree, p_ad);
 
-            _p_tree p_sub_tree = sub_tree(p_tree, child);
-            tree_find_ad(p_sub_tree, p_ad);
-            child = child->p_rigth_sibling;
+            if (p_tree_node == NULL) {
+
+                sibling = sibling->p_rigth_sibling;
+            } else {
+
+                return p_tree_node;
+            }
         }
+        _p_tree_node child = p_tree->root->p_first_child;
+        _p_tree p_sub_tree = sub_tree(p_tree, child);
+
+        return tree_find_ad(p_sub_tree, p_ad);
+    }
+
+    return p_tree->root;
+}
+
+_p_tree_node tree_find_next_ad(_p_tree p_tree, _p_tree_node p_tree_node, _p_adt p_ad) {
+
+    if (p_tree_node != NULL) {
+
+        _p_tree_node sibling = p_tree_node->p_rigth_sibling;
+
+        while (sibling != NULL) {
+
+            _p_tree p_sibling_tree = sub_tree(p_tree, sibling);
+            _p_tree_node p_sub_tree_node = tree_find_ad(p_sibling_tree, p_ad);
+
+            if (p_sub_tree_node == NULL) {
+
+                sibling = sibling->p_rigth_sibling;
+            } else {
+
+                return p_sub_tree_node;
+            }
+        }
+
+        _p_tree_node child = p_tree_node->p_first_child;
+        _p_tree p_sub_tree = sub_tree(p_tree, child);
+
+        return tree_find_ad(p_sub_tree, p_ad);
     }
 
     return NULL;
 }
 
 
-_p_tree_node *tree_breadth_first_traverse(_p_tree p_tree) {
+_p_list tree_breadth_first_traverse(_p_tree p_tree) {
 
+    _p_list p_list = list_init(32);
+    _p_queue p_queue = queue_init(NULL, NULL);
 
-    return NULL;
+    _p_adt p_ad = get_ads(1, sizeof(_p_tree_node));
+    p_ad->data = p_tree->root;
+
+    while (p_ad != NULL) {
+
+        list_append(p_list, p_ad);
+        _p_tree_node child = ((_p_tree_node) (p_ad->data))->p_first_child;
+
+        while (child != NULL) {
+
+            _p_adt p_ad_child = get_ads(1, sizeof(_p_tree_node));
+            p_ad_child->data = child;
+            queue_enqueue(p_queue, p_ad_child);
+            child = child->p_rigth_sibling;
+        }
+        p_ad = queue_dequeue(p_queue);
+    }
+
+    return p_list;
 }
 
-_p_tree_node *tree_depth_first_traverse(_p_tree p_tree, bool is_root_first) {
+static _p_list tree_depth_first_traverse_helper(_p_list p_list, _p_tree p_tree, bool is_root_first) {
 
+    if (p_tree != NULL) {
+
+        if (!is_root_first) {
+
+            _p_tree_node child = p_tree->root->p_first_child;
+
+            while (child != NULL) {
+
+                _p_tree p_sub_tree = sub_tree(p_tree, child);
+                tree_depth_first_traverse_helper(p_list, p_sub_tree, is_root_first);
+                child = child->p_rigth_sibling;
+            }
+
+            _p_adt p_ad = get_ads(1, sizeof(_p_tree_node));
+            p_ad->data = p_tree->root;
+            list_append(p_list, p_ad);
+
+        } else {
+            _p_tree_node child = p_tree->root->p_first_child;
+
+            _p_adt p_ad = get_ads(1, sizeof(_p_tree_node));
+            p_ad->data = p_tree->root;
+            list_append(p_list, p_ad);
+
+            while (child != NULL) {
+
+                _p_tree p_sub_tree = sub_tree(p_tree, child);
+                tree_depth_first_traverse_helper(p_list, p_sub_tree, is_root_first);
+                child = child->p_rigth_sibling;
+            }
+        }
+    }
+
+    return p_list;
+}
+
+_p_list tree_depth_first_traverse(_p_tree p_tree, bool is_root_first) {
+
+    if (p_tree != NULL) {
+
+        _p_list p_list = list_init(32);
+        return tree_depth_first_traverse_helper(p_list, p_tree, is_root_first);
+    }
 
     return NULL;
 }
@@ -168,30 +264,61 @@ _p_binary_tree to_binary_tree(_p_tree p_tree) {
     return NULL;
 }
 
-bool node_on_tree(_p_tree p_tree, _p_tree_node p_tree_node) {
 
-    if (p_tree->root == p_tree_node) {
+static bool node_equals(void *data1, void *data2) {
 
-        return true;
-    } else {
+    _p_tree_node root = ((_p_tree) data1)->root;
+    _p_tree_node p_tree_node = (_p_tree_node) data2;
+
+    return root == p_tree_node;
+}
+
+static bool ad_equals(void *data1, void *data2) {
+
+    _p_tree p_tree = (_p_tree) data1;
+    _p_tree_node root = p_tree->root;
+    _p_adt p_ad = (_p_adt) data2;
+    return adt_equals(root->p_ad, p_ad);
+}
+
+bool tree_existed(_p_tree p_tree, void *data, bool (*equals)(void *, void *)) {
+
+    if (!equals(p_tree, data)) {
 
         _p_tree_node sibling = p_tree->root->p_rigth_sibling;
 
-        while (sibling != NULL){
+        while (sibling != NULL) {
 
             _p_tree p_sibling_tree = sub_tree(p_tree, sibling);
-            node_on_tree(p_sibling_tree, sibling);
+
+            if (!tree_existed(p_sibling_tree, data, equals)) {
+
+                sibling = sibling->p_rigth_sibling;
+            } else {
+
+                return true;
+            }
         }
         _p_tree_node child = p_tree->root->p_first_child;
         _p_tree p_sub_tree = sub_tree(p_tree, child);
-        node_on_tree(p_sub_tree, p_tree_node);
+
+        return p_sub_tree != NULL ? tree_existed(p_sub_tree, data, equals) : false;
     }
 
-    return false;
+    return true;
 }
 
 
-_p_tree_node tree_find_next_ad(_p_tree p_tree, _p_tree_node p_tree_node, _p_adt p_ad) {
+bool tree_node_existed(_p_tree p_tree, _p_tree_node p_tree_node) {
 
-
+    return tree_existed(p_tree, p_tree_node, node_equals);
 }
+
+bool tree_ad_existed(_p_tree p_tree, _p_adt p_ad) {
+
+    return tree_existed(p_tree, p_ad, ad_equals);
+}
+
+
+
+

@@ -44,23 +44,14 @@ update_tree_ancestor_node(_p_binary_tree_node parent, _p_binary_tree_node child,
     return NULL;
 }
 
-_p_binary_tree binary_tree_init(_p_adt p_ad_root,
-                                _p_func_adt_assigns adt_assigns,
-                                _p_func_adt_bits_assigns bits_assigns,
-                                _p_func_adt_equals adt_equals,
-                                _p_func_adt_bits_equals bits_equals) {
+_p_binary_tree binary_tree_init(_p_adt p_ad_root) {
 
     if (valid_data(p_ad_root)) {
 
         _p_binary_tree p_binary_tree = alloc_memory(sizeof(_binary_tree));
 
-        p_binary_tree->adt_assigns = assigns_func(adt_assigns);
-        p_binary_tree->adt_equals = equals_func(adt_equals);
-        p_binary_tree->adt_bits_assigns = bits_assigns_func(bits_assigns);
-        p_binary_tree->adt_bits_equals = bits_assigns_func(bits_equals);
-
         p_binary_tree->root = alloc_memory(sizeof(_binary_tree_node));
-        p_binary_tree->adt_assigns(&p_binary_tree->root->p_ad, p_ad_root);
+        p_binary_tree->root->p_ad = p_ad_root;
 
         p_binary_tree->root->depth = 1;
         p_binary_tree->root->degree = 0;
@@ -205,7 +196,7 @@ static _p_binary_tree_node binary_tree_find_node_helper(_p_binary_tree p_binary_
 
     if (p_binary_tree != NULL && p_binary_tree_start_node != NULL && p_binary_tree_node != NULL) {
 
-        if (p_binary_tree->adt_equals(p_binary_tree_start_node->p_ad, p_binary_tree_node->p_ad)) {
+        if (adt_equals(p_binary_tree_start_node->p_ad, p_binary_tree_node->p_ad)) {
 
             return p_binary_tree_start_node;
         }
@@ -220,7 +211,7 @@ static _p_binary_tree_node binary_tree_find_ad_helper(_p_binary_tree p_binary_tr
 
     if (p_binary_tree != NULL && p_binary_tree_start_node != NULL && p_ad != NULL) {
 
-        if (p_binary_tree->adt_equals(p_binary_tree_start_node->p_ad, p_ad)) {
+        if (adt_equals(p_binary_tree_start_node->p_ad, p_ad)) {
 
             return p_binary_tree_start_node;
         }
@@ -449,7 +440,7 @@ _p_binary_tree_node binary_tree_make_node(_p_binary_tree p_binary_tree, _p_adt p
 
         p_binary_tree_node->depth = 1;
         p_binary_tree_node->degree = 0;
-        p_binary_tree->adt_assigns(&p_binary_tree_node->p_ad, p_ad);
+        p_binary_tree_node->p_ad = p_ad;
         p_binary_tree_node->p_parent = p_binary_tree_node->p_left_child = p_binary_tree_node->p_right_child = NULL;
 
         return p_binary_tree_node;

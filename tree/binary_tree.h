@@ -23,18 +23,11 @@ typedef struct binary_tree {
 
     unsigned size;
     _p_binary_tree_node root;
-    _p_func_adt_assigns adt_assigns;
-    _p_func_adt_equals adt_equals;
-    _p_func_adt_bits_assigns adt_bits_assigns;
-    _p_func_adt_bits_equals adt_bits_equals;
+
 
 } _binary_tree, *_p_binary_tree;
 
-_p_binary_tree binary_tree_init(_p_adt p_ad_root,
-                                _p_func_adt_assigns adt_assigns,
-                                _p_func_adt_bits_assigns bits_assigns,
-                                _p_func_adt_equals adt_equals,
-                                _p_func_adt_bits_equals bits_equals);
+_p_binary_tree binary_tree_init(_p_adt p_ad_root);
 
 _p_binary_tree_node binary_tree_add_left_child_node(_p_binary_tree_node p_parent, _p_binary_tree_node p_left_node);
 

@@ -8,6 +8,18 @@ CMakeFiles/data_structure.dir/adt/adt.c.o: ../pool/pool.h
 CMakeFiles/data_structure.dir/global.c.o: ../global.c
 CMakeFiles/data_structure.dir/global.c.o: ../pool/pool.h
 
+CMakeFiles/data_structure.dir/graph/directed_graph.c.o: ../adt/adt.h
+CMakeFiles/data_structure.dir/graph/directed_graph.c.o: ../graph/directed_graph.c
+CMakeFiles/data_structure.dir/graph/directed_graph.c.o: ../graph/directed_graph.h
+CMakeFiles/data_structure.dir/graph/directed_graph.c.o: ../list/linked_list.h
+CMakeFiles/data_structure.dir/graph/directed_graph.c.o: ../pool/pool.h
+
+CMakeFiles/data_structure.dir/graph/graph.c.o: ../adt/adt.h
+CMakeFiles/data_structure.dir/graph/graph.c.o: ../graph/graph.c
+CMakeFiles/data_structure.dir/graph/graph.c.o: ../graph/graph.h
+CMakeFiles/data_structure.dir/graph/graph.c.o: ../list/linked_list.h
+CMakeFiles/data_structure.dir/graph/graph.c.o: ../pool/pool.h
+
 CMakeFiles/data_structure.dir/list/linked_list.c.o: ../adt/adt.h
 CMakeFiles/data_structure.dir/list/linked_list.c.o: ../list/linked_list.c
 CMakeFiles/data_structure.dir/list/linked_list.c.o: ../list/linked_list.h
@@ -28,6 +40,7 @@ CMakeFiles/data_structure.dir/main.c.o: ../queue/queue.h
 CMakeFiles/data_structure.dir/main.c.o: ../stack/linked_stack.h
 CMakeFiles/data_structure.dir/main.c.o: ../stack/stack.h
 CMakeFiles/data_structure.dir/main.c.o: ../tree/binary_tree.h
+CMakeFiles/data_structure.dir/main.c.o: ../tree/tree.h
 
 CMakeFiles/data_structure.dir/pool/pool.c.o: ../pool/pool.c
 CMakeFiles/data_structure.dir/pool/pool.c.o: ../pool/pool.h
@@ -60,7 +73,11 @@ CMakeFiles/data_structure.dir/tree/binary_tree.c.o: ../tree/binary_tree.c
 CMakeFiles/data_structure.dir/tree/binary_tree.c.o: ../tree/binary_tree.h
 
 CMakeFiles/data_structure.dir/tree/tree.c.o: ../adt/adt.h
+CMakeFiles/data_structure.dir/tree/tree.c.o: ../list/linked_list.h
+CMakeFiles/data_structure.dir/tree/tree.c.o: ../list/list.h
 CMakeFiles/data_structure.dir/tree/tree.c.o: ../pool/pool.h
+CMakeFiles/data_structure.dir/tree/tree.c.o: ../queue/queue.h
+CMakeFiles/data_structure.dir/tree/tree.c.o: ../tree/binary_tree.h
 CMakeFiles/data_structure.dir/tree/tree.c.o: ../tree/tree.c
 CMakeFiles/data_structure.dir/tree/tree.c.o: ../tree/tree.h
 

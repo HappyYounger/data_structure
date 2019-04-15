@@ -5,14 +5,11 @@
 #include "linked_stack.h"
 #include <stddef.h>
 
-_p_linked_stack linked_stack_init(_p_func_adt_assigns adt_assigns, _p_func_adt_bits_assigns adt_bits_assigns) {
+_p_linked_stack linked_stack_init() {
 
     _p_linked_stack p_linked_stack = alloc_memory(sizeof(struct linked_stack));
 
     if (p_linked_stack != NULL) {
-
-        p_linked_stack->adt_assigns = assigns_func(adt_assigns);
-        p_linked_stack->adt_bits_assigns = bits_assigns_func(adt_bits_assigns);
 
         p_linked_stack->top = NULL;
     }
@@ -26,8 +23,7 @@ _p_linked_stack linked_stack_push(_p_linked_stack p_linked_stack, _p_adt p_ad) {
 
         _p_linked_stack_node p_linked_stack_node = alloc_memory(sizeof(struct linked_stack_node));
 
-        p_linked_stack->adt_assigns(&p_linked_stack_node->p_ad, p_ad);
-
+        p_linked_stack_node->p_ad = p_ad;
         p_linked_stack_node->p_next = p_linked_stack->top;
         p_linked_stack->top = p_linked_stack_node;
 

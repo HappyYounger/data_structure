@@ -8,11 +8,7 @@
 
 static const int _DEFAULT_LIST_CAPACITY_ = 16;
 
-_p_list list_init(unsigned capacity,
-                  _p_func_adt_assigns adt_assigns,
-                  _p_func_adt_bits_assigns bits_assigns,
-                  _p_func_adt_equals adt_equals,
-                  _p_func_adt_bits_equals bits_equals) {
+_p_list list_init(unsigned capacity) {
 
     _p_list p_list = alloc_memory(sizeof(_list));
 
@@ -22,12 +18,6 @@ _p_list list_init(unsigned capacity,
         p_list->capacity = capacity < _DEFAULT_LIST_CAPACITY_ ? _DEFAULT_LIST_CAPACITY_ : capacity;
 
         p_list->list = alloc_memory(sizeof(_p_adt) * p_list->capacity);
-
-        p_list->adt_assigns = assigns_func(adt_assigns);
-        p_list->adt_equals = equals_func(adt_equals);
-        p_list->adt_bits_assigns = bits_assigns_func(bits_assigns);
-        p_list->adt_bits_equals = bits_assigns_func(bits_equals);
-
         return p_list;
     }
 
@@ -53,11 +43,11 @@ _p_list list_extend(_p_list p_list) {
 
 int list_find(_p_list p_list, _p_adt p_ad) {
 
-    if (p_list != NULL && p_ad != NULL) {
+    if (p_list != NULL && valid_data(p_ad)) {
 
         for (int i = 0; i < p_list->size; ++i) {
 
-            if (p_list->adt_equals(p_list->list[i], p_ad)) {
+            if (adt_equals(p_list->list[i], p_ad)) {
 
                 return i;
             }
@@ -69,7 +59,7 @@ int list_find(_p_list p_list, _p_adt p_ad) {
 
 int list_remove(_p_list p_list, _p_adt p_ad) {
 
-    if (p_list != NULL && p_ad != NULL && p_ad->data != NULL) {
+    if (p_list != NULL && valid_data(p_ad)) {
         int index = list_find(p_list, p_ad);
 
         if (index > -1) {
@@ -102,9 +92,7 @@ int list_remove_all(_p_list p_list, _p_adt p_ad) {
 
         _p_adt p_ad1 = p_list->list[i];
 
-        if ((p_list->adt_equals != NULL && p_list->adt_equals(p_ad1, p_ad))
-            ||
-            (p_list->adt_equals == NULL && p_ad1->data == p_ad->data)) {
+        if (adt_equals(p_ad1, p_ad)) {
 
             list_remove_at(p_list, i);
             ++count;
@@ -135,7 +123,7 @@ int list_remove_if(_p_list p_list, _p_func_if p_func_if) {
 
 int list_insert(_p_list p_list, unsigned index, _p_adt p_ad) {
 
-    if (p_list != NULL) {
+    if (p_list != NULL && valid_data(p_ad)) {
 
         if (p_list->size == p_list->capacity) {
 
@@ -154,15 +142,18 @@ int list_insert(_p_list p_list, unsigned index, _p_adt p_ad) {
 
 int list_append(_p_list p_list, _p_adt p_ad) {
 
-    if (p_list->size == p_list->capacity) {
+    if (p_list != NULL && valid_data(p_ad)) {
 
-        list_extend(p_list);
+        if (p_list->size == p_list->capacity) {
+
+            list_extend(p_list);
+        }
+        p_list->list[p_list->size++] = p_ad;
+
+        return p_list->size - 1;
     }
 
-    p_list->list[p_list->size] = p_ad;
-    ++p_list->size;
-
-    return p_list->size - 1;
+    return -1;
 }
 
 void list_clear(_p_list p_list) {

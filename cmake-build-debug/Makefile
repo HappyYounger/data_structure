@@ -177,6 +177,60 @@ global.c.s:
 	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/global.c.s
 .PHONY : global.c.s
 
+graph/directed_graph.o: graph/directed_graph.c.o
+
+.PHONY : graph/directed_graph.o
+
+# target to build an object file
+graph/directed_graph.c.o:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/graph/directed_graph.c.o
+.PHONY : graph/directed_graph.c.o
+
+graph/directed_graph.i: graph/directed_graph.c.i
+
+.PHONY : graph/directed_graph.i
+
+# target to preprocess a source file
+graph/directed_graph.c.i:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/graph/directed_graph.c.i
+.PHONY : graph/directed_graph.c.i
+
+graph/directed_graph.s: graph/directed_graph.c.s
+
+.PHONY : graph/directed_graph.s
+
+# target to generate assembly for a file
+graph/directed_graph.c.s:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/graph/directed_graph.c.s
+.PHONY : graph/directed_graph.c.s
+
+graph/graph.o: graph/graph.c.o
+
+.PHONY : graph/graph.o
+
+# target to build an object file
+graph/graph.c.o:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/graph/graph.c.o
+.PHONY : graph/graph.c.o
+
+graph/graph.i: graph/graph.c.i
+
+.PHONY : graph/graph.i
+
+# target to preprocess a source file
+graph/graph.c.i:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/graph/graph.c.i
+.PHONY : graph/graph.c.i
+
+graph/graph.s: graph/graph.c.s
+
+.PHONY : graph/graph.s
+
+# target to generate assembly for a file
+graph/graph.c.s:
+	$(MAKE) -f CMakeFiles/data_structure.dir/build.make CMakeFiles/data_structure.dir/graph/graph.c.s
+.PHONY : graph/graph.c.s
+
 list/linked_list.o: list/linked_list.c.o
 
 .PHONY : list/linked_list.o
@@ -489,6 +543,12 @@ help:
 	@echo "... global.o"
 	@echo "... global.i"
 	@echo "... global.s"
+	@echo "... graph/directed_graph.o"
+	@echo "... graph/directed_graph.i"
+	@echo "... graph/directed_graph.s"
+	@echo "... graph/graph.o"
+	@echo "... graph/graph.i"
+	@echo "... graph/graph.s"
 	@echo "... list/linked_list.o"
 	@echo "... list/linked_list.i"
 	@echo "... list/linked_list.s"

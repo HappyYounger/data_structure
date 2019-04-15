@@ -12,6 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/data_structure.dir/queue/circle_queue.c.o"
   "CMakeFiles/data_structure.dir/tree/tree.c.o"
   "CMakeFiles/data_structure.dir/tree/binary_tree.c.o"
+  "CMakeFiles/data_structure.dir/graph/graph.c.o"
+  "CMakeFiles/data_structure.dir/graph/directed_graph.c.o"
   "data_structure.pdb"
   "data_structure"
 )

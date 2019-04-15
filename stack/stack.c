@@ -7,7 +7,7 @@
 
 static const unsigned _DEFAULT_STACK_CAPACITY_ = 32;
 
-_p_stack stack_init(_p_func_adt_assigns adt_assigns, _p_func_adt_bits_assigns adt_bits_assigns) {
+_p_stack stack_init() {
 
     _p_stack p_stack = alloc_memory(sizeof(_stack));
 
@@ -16,9 +16,6 @@ _p_stack stack_init(_p_func_adt_assigns adt_assigns, _p_func_adt_bits_assigns ad
         p_stack->top = -1;
         p_stack->capacity = _DEFAULT_STACK_CAPACITY_;
         p_stack->array = alloc_memory(p_stack->capacity * sizeof(_p_adt));
-
-        p_stack->adt_assigns = assigns_func(adt_assigns);
-        p_stack->adt_bits_assigns = bits_assigns_func(adt_bits_assigns);
     }
     return p_stack;
 }
