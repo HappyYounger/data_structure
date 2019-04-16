@@ -11,12 +11,12 @@ extern _p_memory_pool p_memory_pool;
 
 bool adt_equals(_p_adt p_ad1, _p_adt p_ad2) {
 
-    return valid_ad(p_ad1) &&valid_ad(p_ad2) ? p_ad1 == p_ad2 : NULL;
+    return valid_ad(p_ad1) && valid_ad(p_ad2) ? p_ad1 == p_ad2 : NULL;
 }
 
-_p_adt get_ads(unsigned size, unsigned bytes) {
+_p_adt get_ad_objects(unsigned size, unsigned bytes) {
 
-    if (size > 0) {
+    if (size > 0 && bytes > 0) {
 
         _p_adt p_ad = alloc_memory((sizeof(_adt) + bytes) * size);
 
@@ -30,6 +30,21 @@ _p_adt get_ads(unsigned size, unsigned bytes) {
 
     return NULL;
 }
+
+_p_adt get_ad_pointers(unsigned size, unsigned bytes) {
+
+    if (size > 0 && bytes > 0) {
+
+        _p_adt p_ad = alloc_memory(sizeof(_adt));
+        for (int i = 0; i < size; ++i) {
+
+            (p_ad + i)->bytes = bytes;
+        }
+    }
+
+    return NULL;
+}
+
 
 bool valid_data(_p_adt p_ad) {
 

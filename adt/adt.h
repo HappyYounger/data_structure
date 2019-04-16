@@ -22,6 +22,8 @@ typedef struct adt {
  */
 typedef bool (*_p_func_if)(_p_adt p_ad);
 
+typedef bool (*_p_func_cond)(_p_adt p_ad0, _p_adt p_ad1);
+
 /**
  * 打印
  */
@@ -41,7 +43,9 @@ bool adt_equals(_p_adt p_ad1, _p_adt p_ad2);
  * @param bytes 字节数
  * @return 第一个adt的地址
  */
-_p_adt get_ads(unsigned size, unsigned bytes);
+_p_adt get_ad_objects(unsigned size, unsigned bytes);
+
+_p_adt get_ad_pointers(unsigned size, unsigned bytes);
 
 bool valid_data(_p_adt p_ad);
 

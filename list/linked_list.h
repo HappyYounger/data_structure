@@ -41,9 +41,9 @@ _p_linked_list_node linked_list_insert_last_before(_p_linked_list p_linked_list,
 
 _p_linked_list_node linked_list_insert_last_after(_p_linked_list p_linked_list, _p_adt p_ad);
 
-_p_linked_list_node linked_list_find(_p_linked_list p_linked_list, _p_adt p_ad);
+_p_linked_list_node linked_list_find_cond(_p_linked_list p_linked_list, _p_func_cond func_cond, _p_adt p_ad);
 
-_p_linked_list linked_list_remove(_p_linked_list p_linked_list, _p_adt p_ad);
+_p_linked_list linked_list_remove_cond(_p_linked_list p_linked_list, _p_func_cond func_cond, _p_adt p_ad);
 
 _p_linked_list linked_list_clear(_p_linked_list p_linked_list);
 

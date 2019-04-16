@@ -121,6 +121,24 @@ int list_remove_if(_p_list p_list, _p_func_if p_func_if) {
     return count;
 }
 
+int list_find_cond(_p_list p_list, _p_func_cond p_func_cond, _p_adt p_ad) {
+
+    _p_func_cond cond = p_func_cond == NULL ? adt_equals : p_func_cond;
+    if (p_list != NULL && valid_data(p_ad)) {
+
+        for (int i = 0; i < p_list->size; ++i) {
+
+            if (cond(p_list->list[i], p_ad)) {
+
+                return i;
+            }
+        }
+    }
+
+    return -1;
+}
+
+
 int list_insert(_p_list p_list, unsigned index, _p_adt p_ad) {
 
     if (p_list != NULL && valid_data(p_ad)) {

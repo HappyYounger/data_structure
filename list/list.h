@@ -89,6 +89,9 @@ int list_insert(_p_list p_list, unsigned index, _p_adt p_ad);
  */
 int list_append(_p_list p_list, _p_adt p_ad);
 
+
+int list_find_cond(_p_list p_list, _p_func_cond p_func_cond, _p_adt p_ad);
+
 /**
  * 清空
  * @param p_list

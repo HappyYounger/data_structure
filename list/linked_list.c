@@ -5,7 +5,9 @@
 #include "linked_list.h"
 #include <stddef.h>
 
-_p_linked_list_node linked_list_find(_p_linked_list p_linked_list, _p_adt p_ad) {
+_p_linked_list_node linked_list_find_cond(_p_linked_list p_linked_list, _p_func_cond func_cond, _p_adt p_ad) {
+
+    _p_func_cond cond = func_cond == NULL ? adt_equals : func_cond;
 
     if (p_linked_list != NULL && p_ad != NULL && p_ad->data != NULL) {
 
@@ -13,7 +15,7 @@ _p_linked_list_node linked_list_find(_p_linked_list p_linked_list, _p_adt p_ad) 
 
         while (p_cur != NULL) {
 
-            if (adt_equals(p_cur->p_ad, p_ad)) {
+            if (cond(p_cur->p_ad, p_ad)) {
 
                 return p_cur;
             }
@@ -47,7 +49,7 @@ _p_linked_list_node linked_list_insert_before(_p_linked_list p_linked_list,
 
     if (p_linked_list != NULL && valid_data(p_des_ad) && valid_ad(p_ad)) {
 
-        _p_linked_list_node p_des_node = linked_list_find(p_linked_list, p_des_ad);
+        _p_linked_list_node p_des_node = linked_list_find_cond(p_linked_list, NULL, p_des_ad);
         if (p_des_node != NULL) {
 
             _p_linked_list_node p_linked_list_node = alloc_memory(sizeof(struct linked_list_node));
@@ -73,7 +75,7 @@ _p_linked_list_node linked_list_insert_after(_p_linked_list p_linked_list,
 
     if (p_linked_list != NULL && p_des_ad != NULL && p_ad != NULL) {
 
-        _p_linked_list_node p_des_node = linked_list_find(p_linked_list, p_des_ad);
+        _p_linked_list_node p_des_node = linked_list_find_cond(p_linked_list, NULL, p_des_ad);
         if (p_des_node != NULL) {
 
             _p_linked_list_node p_linked_list_node = alloc_memory(sizeof(struct linked_list_node));
@@ -212,11 +214,11 @@ _p_linked_list_node linked_list_insert_last_after(_p_linked_list p_linked_list, 
     return NULL;
 }
 
-_p_linked_list linked_list_remove(_p_linked_list p_linked_list, _p_adt p_ad) {
+_p_linked_list linked_list_remove_cond(_p_linked_list p_linked_list, _p_func_cond func_cond, _p_adt p_ad) {
 
     if (p_linked_list != NULL && p_ad != NULL) {
 
-        _p_linked_list_node p_linked_list_node = linked_list_find(p_linked_list, p_ad);
+        _p_linked_list_node p_linked_list_node = linked_list_find_cond(p_linked_list, func_cond, p_ad);
 
         if (p_linked_list_node != NULL) {
 
@@ -238,6 +240,7 @@ _p_linked_list linked_list_remove(_p_linked_list p_linked_list, _p_adt p_ad) {
 
     return NULL;
 }
+
 
 _p_linked_list linked_list_clear(_p_linked_list p_linked_list) {
 

@@ -188,7 +188,7 @@ _p_list tree_breadth_first_traverse(_p_tree p_tree) {
     _p_list p_list = list_init(32);
     _p_queue p_queue = queue_init(NULL, NULL);
 
-    _p_adt p_ad = get_ads(1, sizeof(_p_tree_node));
+    _p_adt p_ad = get_ad_objects(1, sizeof(_p_tree_node));
     p_ad->data = p_tree->root;
 
     while (p_ad != NULL) {
@@ -198,7 +198,7 @@ _p_list tree_breadth_first_traverse(_p_tree p_tree) {
 
         while (child != NULL) {
 
-            _p_adt p_ad_child = get_ads(1, sizeof(_p_tree_node));
+            _p_adt p_ad_child = get_ad_objects(1, sizeof(_p_tree_node));
             p_ad_child->data = child;
             queue_enqueue(p_queue, p_ad_child);
             child = child->p_rigth_sibling;
@@ -224,14 +224,14 @@ static _p_list tree_depth_first_traverse_helper(_p_list p_list, _p_tree p_tree, 
                 child = child->p_rigth_sibling;
             }
 
-            _p_adt p_ad = get_ads(1, sizeof(_p_tree_node));
+            _p_adt p_ad = get_ad_objects(1, sizeof(_p_tree_node));
             p_ad->data = p_tree->root;
             list_append(p_list, p_ad);
 
         } else {
             _p_tree_node child = p_tree->root->p_first_child;
 
-            _p_adt p_ad = get_ads(1, sizeof(_p_tree_node));
+            _p_adt p_ad = get_ad_objects(1, sizeof(_p_tree_node));
             p_ad->data = p_tree->root;
             list_append(p_list, p_ad);
 

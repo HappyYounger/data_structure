@@ -16,7 +16,7 @@ void print_data_int_array(_p_adt p_ad, unsigned size);
 void pool_test() {
 
     unsigned n = 3;
-    _p_adt p_ad_array = get_ads(n, sizeof(int));
+    _p_adt p_ad_array = get_ad_objects(n, sizeof(int));
 
     for (int i = 0; i < n; ++i) {
 
@@ -33,7 +33,7 @@ static void list_test() {
     unsigned size = 4;
     _p_list p_list = list_init(16);
 
-    _p_adt p_ad = get_ads(size, sizeof(int));
+    _p_adt p_ad = get_ad_objects(size, sizeof(int));
 
     for (int j = 0; j < size; ++j) {
 
@@ -64,7 +64,7 @@ static void linked_list_test() {
     unsigned size = 4;
 
     _p_linked_list p_linked_list = linked_list_init();
-    _p_adt p_ad = get_ads(size, sizeof(int));
+    _p_adt p_ad = get_ad_objects(size, sizeof(int));
 
     int *p_int_array = alloc_memory(sizeof(int) * size);
 
@@ -83,7 +83,7 @@ static void linked_list_test() {
     linked_list_insert_first_before(p_linked_list, p_ad + 1);
     linked_list_insert_last_after(p_linked_list, p_ad + 3);
 
-    _p_adt p_ad1 = get_ads(1, sizeof(int));
+    _p_adt p_ad1 = get_ad_objects(1, sizeof(int));
     int *p_int1 = alloc_memory(sizeof(int));
     *p_int1 = 100;
     p_ad1->data = p_int1;
@@ -102,7 +102,7 @@ static void stack_test() {
     _p_stack p_stack = stack_init(NULL, NULL);
 
     unsigned size = 4;
-    _p_adt p_ad = get_ads(size, sizeof(int));
+    _p_adt p_ad = get_ad_objects(size, sizeof(int));
     int *p_int_array = alloc_memory(sizeof(int) * size);
 
     for (int j = 0; j < size; ++j) {
@@ -132,7 +132,7 @@ static void linked_stack_test() {
     _p_stack p_stack = linked_stack_init(NULL, NULL);
 
     unsigned size = 4;
-    _p_adt p_ad = get_ads(size, sizeof(int));
+    _p_adt p_ad = get_ad_objects(size, sizeof(int));
 
     for (int j = 0; j < size; ++j) {
 
@@ -158,7 +158,7 @@ static void linked_stack_test() {
 static void queue_test() {
 
     unsigned size = 4;
-    _p_adt p_ad = get_ads(size, sizeof(int));
+    _p_adt p_ad = get_ad_objects(size, sizeof(int));
 
     for (int j = 0; j < size; ++j) {
 
@@ -188,7 +188,7 @@ static void queue_test() {
 static void binary_tree_test() {
 
     unsigned size = 8;
-    _p_adt p_ad = get_ads(size, sizeof(int));
+    _p_adt p_ad = get_ad_objects(size, sizeof(int));
 
     for (int j = 0; j < size; ++j) {
 
@@ -229,7 +229,7 @@ static void binary_tree_test() {
 static void tree_test() {
 
     unsigned size = 6;
-    _p_adt p_ad = get_ads(size, sizeof(int));
+    _p_adt p_ad = get_ad_objects(size, sizeof(int));
 
     for (int i = 0; i < size; ++i) {
 
@@ -295,9 +295,9 @@ int main() {
 //    linked_list_test();
 //    stack_test();
 //    queue_test();
-//    binary_tree_test();
+    binary_tree_test();
 
-    tree_test();
+//    tree_test();
     destroy_pool(pool);
 
 //    unsigned count = count_test(262094);//max value 262094 for iteration
