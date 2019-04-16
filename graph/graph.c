@@ -55,6 +55,7 @@ static _p_graph_vertex add_vertex(_p_graph p_graph, _p_graph_vertex p_graph_vert
     return NULL;
 }
 
+
 static _p_graph remove_vertex(_p_graph p_graph, _p_graph_vertex p_graph_vertex) {
 
     _p_adt p_ad_v = get_ad_pointers(1, sizeof(_graph_vertex));
@@ -66,11 +67,44 @@ static _p_graph remove_vertex(_p_graph p_graph, _p_graph_vertex p_graph_vertex) 
 
             //删除边
 
+            _p_linked_list_node p_cur = p_graph_vertex->p_linked_list_edge->first;
+
+            while (p_cur != NULL) {
+
+                _p_edge p_edge = p_cur->p_ad->data;
+
+                _p_graph_vertex p_v0 = p_edge->p_v0;
+                _p_graph_vertex p_v1 = p_edge->p_v1;
+
+                _p_graph_vertex p_v = NULL;
+
+                if (p_v0 == p_graph_vertex) {
+
+                    p_v = p_v1;
+                } else if (p_v1 == p_graph_vertex) {
+
+                    p_v = p_v0;
+                }
+
+                if (p_v != NULL) {
+
+                    _p_adt p_ad_e = get_ad_pointers(1, sizeof(_edge));
+                    p_ad_e->data = p_edge;
+
+                    linked_list_remove_cond(p_graph->p_linked_list_edge, edge_equals_edge, p_ad_e);
+                    linked_list_remove_cond(p_graph_vertex->p_linked_list_edge, edge_equals_edge, p_ad_e);
+                    linked_list_remove_cond(p_v->p_linked_list_edge, edge_equals_edge, p_ad_e);
+                }
+
+                p_cur = p_cur->p_next;
+            }
+
             return p_graph;
         }
     }
     return NULL;
 }
+
 static _p_edge add_edge(_p_graph p_graph, _p_edge p_edge) {
 
     _p_adt p_ad_e = get_ad_pointers(1, sizeof(_p_edge));
@@ -78,9 +112,16 @@ static _p_edge add_edge(_p_graph p_graph, _p_edge p_edge) {
 
         p_ad_e->data = p_edge;
 
-        if(linked_list_insert_last_after(p_graph->p_linked_list_edge, p_ad_e) != NULL){
+        if (linked_list_insert_last_after(p_graph->p_linked_list_edge, p_ad_e) != NULL) {
 
-            //添加边
+            //在vertex上添加边
+
+            _p_graph_vertex p_v0 = p_edge->p_v0;
+            _p_graph_vertex p_v1 = p_edge->p_v1;
+
+            linked_list_insert_last_after(p_v0->p_linked_list_edge, p_ad_e);
+            linked_list_insert_last_after(p_v1->p_linked_list_edge, p_ad_e);
+
             return p_edge;
         }
     }
@@ -249,7 +290,7 @@ _p_edge graph_find_ad_edge(_p_graph p_graph, _p_adt p_ad0, _p_adt p_ad1) {
 
         while (p_cur != NULL) {
 
-            _p_edge p_edge = (_p_edge) p_cur->p_ad;
+            _p_edge p_edge = p_cur->p_ad->data;
 
             if (edge_equals_ad(p_edge, p_ad0, p_ad1)) {
 
@@ -270,7 +311,7 @@ _p_edge graph_find_edge(_p_graph p_graph, _p_edge p_edge) {
 
         while (p_cur != NULL) {
 
-            _p_edge p_e = (_p_edge) p_cur->p_ad;
+            _p_edge p_e = p_cur->p_ad->data;
 
             if (edge_equals_edge(p_e, p_edge)) {
 
