@@ -222,17 +222,39 @@ _p_linked_list linked_list_remove_cond(_p_linked_list p_linked_list, _p_func_con
 
         if (p_linked_list_node != NULL) {
 
-            if (p_linked_list_node->p_previous != NULL) {
+
+            if (p_linked_list_node == p_linked_list->first) {
+
+                if (p_linked_list_node->p_next == NULL) {
+
+                    p_linked_list->first = p_linked_list->last = NULL;
+                } else {
+
+                    p_linked_list->first = p_linked_list_node->p_next;
+                    p_linked_list->first->p_previous = NULL;
+                }
+
+            } else if (p_linked_list_node == p_linked_list->last) {
+
+                if (p_linked_list_node->p_previous == NULL) {
+
+                    p_linked_list->first = p_linked_list->last = NULL;
+                } else {
+
+                    p_linked_list->last = p_linked_list_node->p_previous;
+
+                    p_linked_list->last->p_next = NULL;
+
+                }
+            } else {
 
                 p_linked_list_node->p_previous->p_next = p_linked_list_node->p_next;
-            }
-
-            if (p_linked_list_node->p_next != NULL) {
-
                 p_linked_list_node->p_next->p_previous = p_linked_list_node->p_previous;
             }
 
+
             --p_linked_list->size;
+
         }
 
         return p_linked_list;

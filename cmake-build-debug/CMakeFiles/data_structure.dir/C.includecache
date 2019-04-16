@@ -14,47 +14,17 @@ stdbool.h
 pool/pool.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h
 
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/graph/directed_graph.c
-directed_graph.h
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/graph/directed_graph.h
-
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/graph/directed_graph.h
-../list/linked_list.h
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/linked_list.h
-
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/graph/graph.c
-stddef.h
--
-graph.h
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/graph/graph.h
-../pool/pool.h
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h
-
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/graph/graph.h
 ../adt/adt.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/adt/adt.h
 ../list/linked_list.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/linked_list.h
 
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/linked_list.c
-linked_list.h
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/linked_list.h
-stddef.h
--
-
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/linked_list.h
 ../adt/adt.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/adt/adt.h
 ../pool/pool.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h
-
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/list.c
-list.h
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/list.h
-stdlib.h
--
-string.h
--
 
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/list.h
 ../adt/adt.h
@@ -83,6 +53,8 @@ tree/binary_tree.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/binary_tree.h
 tree/tree.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/tree.h
+graph/graph.h
+/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/graph/graph.h
 
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h
 
@@ -109,18 +81,6 @@ tree/tree.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/adt/adt.h
 ../pool/pool.h
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/pool/pool.h
-
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/tree.c
-stdio.h
--
-stddef.h
--
-tree.h
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/tree.h
-../list/linked_list.h
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/list/linked_list.h
-../queue/queue.h
-/Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/queue/queue.h
 
 /Users/yangguang/Documents/sunny/dev/workspaces/workspace-clion/data_structure/tree/tree.h
 ../adt/adt.h

@@ -40,6 +40,8 @@ _p_adt get_ad_pointers(unsigned size, unsigned bytes) {
 
             (p_ad + i)->bytes = bytes;
         }
+
+        return p_ad;
     }
 
     return NULL;

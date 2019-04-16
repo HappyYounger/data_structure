@@ -16,7 +16,6 @@ static bool vertex_equals_vertex(_p_adt p_ad0, _p_adt p_ad1) {
     return ((_p_graph_vertex) p_ad0->data)->p_ad == ((_p_graph_vertex) p_ad1->data)->p_ad;
 }
 
-
 static bool edge_equals_ad(_p_edge p_edge, _p_adt p_ad0, _p_adt p_ad1) {
 
     if (p_edge != NULL && valid_data(p_ad0) && valid_data(p_ad1)) {
@@ -66,10 +65,12 @@ static _p_graph remove_vertex(_p_graph p_graph, _p_graph_vertex p_graph_vertex) 
         if (linked_list_remove_cond(p_graph->p_linked_list_vertex, vertex_equals_vertex, p_ad_v) != NULL) {
 
             //删除边
-
             _p_linked_list_node p_cur = p_graph_vertex->p_linked_list_edge->first;
 
             while (p_cur != NULL) {
+
+                linked_list_remove_cond(p_graph_vertex->p_linked_list_edge, edge_equals_edge, p_cur->p_ad);
+                linked_list_remove_cond(p_graph->p_linked_list_edge, edge_equals_edge, p_cur->p_ad);
 
                 _p_edge p_edge = p_cur->p_ad->data;
 
@@ -88,12 +89,7 @@ static _p_graph remove_vertex(_p_graph p_graph, _p_graph_vertex p_graph_vertex) 
 
                 if (p_v != NULL) {
 
-                    _p_adt p_ad_e = get_ad_pointers(1, sizeof(_edge));
-                    p_ad_e->data = p_edge;
-
-                    linked_list_remove_cond(p_graph->p_linked_list_edge, edge_equals_edge, p_ad_e);
-                    linked_list_remove_cond(p_graph_vertex->p_linked_list_edge, edge_equals_edge, p_ad_e);
-                    linked_list_remove_cond(p_v->p_linked_list_edge, edge_equals_edge, p_ad_e);
+                    linked_list_remove_cond(p_v->p_linked_list_edge, edge_equals_edge, p_cur->p_ad);
                 }
 
                 p_cur = p_cur->p_next;

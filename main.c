@@ -8,6 +8,11 @@
 #include "queue/queue.h"
 #include "tree/binary_tree.h"
 #include "tree/tree.h"
+#include "graph/graph.h"
+
+void print_vertex_data_int(_p_adt p_ad);
+
+void print_edge_int(_p_adt p_ad);
 
 void print_data_int(_p_adt p_ad);
 
@@ -90,7 +95,7 @@ static void linked_list_test() {
 
     linked_list_insert_after(p_linked_list, p_ad + 1, p_ad1);
 
-    linked_list_remove(p_linked_list, p_ad1);
+    linked_list_remove_cond(p_linked_list, NULL, p_ad1);
 
     print_linked_list(p_linked_list, print_data_int);
     return;
@@ -273,6 +278,54 @@ static void tree_test() {
     }
 }
 
+static void graph_test() {
+
+    const unsigned size = 3;
+    _p_graph p_graph = graph_init();
+
+    _p_adt p_ad = get_ad_objects(size, sizeof(int));
+    _p_adt p_ad_weight = get_ad_objects(size, sizeof(int));
+
+    _p_graph_vertex vertex_array[size];
+
+    _p_edge edge_array[size];
+
+    for (int i = 0; i < size; ++i) {
+
+        *((int *) (p_ad + i)->data) = i;
+        *((int *) (p_ad_weight + i)->data) = i + 2;
+
+        vertex_array[i] = graph_make_original_graph_vertex(p_ad + i);
+        graph_add_vertex(p_graph, vertex_array[i]);
+    }
+
+    edge_array[0] = graph_add_ad_edge(p_graph, p_ad, p_ad + 1, p_ad_weight);
+    edge_array[1] = graph_add_ad_edge(p_graph, p_ad + 1, p_ad + 2, p_ad_weight + 1);
+    edge_array[2] = graph_add_ad_edge(p_graph, p_ad + 2, p_ad, p_ad_weight + 2);
+
+//    print_linked_list(p_graph->p_linked_list_vertex, print_vertex_data_int);
+//    printf("\n");
+//    print_linked_list(p_graph->p_linked_list_edge, print_edge_int);
+//    printf("\n");
+//
+//
+//    for (int j = 0; j < size; ++j) {
+//
+//        print_linked_list(vertex_array[j]->p_linked_list_edge, print_edge_int);
+//    }
+
+//    graph_remove_vertex(p_graph, vertex_array[0]);
+    graph_remove_vertex(p_graph, vertex_array[1]);
+//    graph_remove_vertex(p_graph, vertex_array[2]);
+
+    print_linked_list(p_graph->p_linked_list_vertex, print_vertex_data_int);
+    printf("\n");
+
+    print_linked_list(p_graph->p_linked_list_edge, print_edge_int);
+    printf("\n");
+
+}
+
 unsigned count_test(unsigned x) {
 
     static unsigned count = 0;
@@ -295,9 +348,10 @@ int main() {
 //    linked_list_test();
 //    stack_test();
 //    queue_test();
-    binary_tree_test();
-
+//    binary_tree_test();
 //    tree_test();
+
+    graph_test();
     destroy_pool(pool);
 
 //    unsigned count = count_test(262094);//max value 262094 for iteration
@@ -319,5 +373,29 @@ void print_data_int_array(_p_adt p_ad, unsigned size) {
     for (int i = 0; i < size; ++i) {
 
         print_data_int(p_ad + i);
+    }
+}
+
+void print_vertex_data_int(_p_adt p_ad) {
+
+
+    if (valid_data(p_ad)) {
+
+        _p_graph_vertex p_v = p_ad->data;
+
+        printf("%d ", *((int *) p_v->p_ad->data));
+    }
+}
+
+void print_edge_int(_p_adt p_ad) {
+
+    if (valid_data(p_ad)) {
+
+        _p_edge p_e = p_ad->data;
+        _p_graph_vertex p_v0 = p_e->p_v0;
+        _p_graph_vertex p_v1 = p_e->p_v1;
+        _p_adt p_ad_weight = p_e->p_ad_weight;
+
+        printf("%d %d %d\n", *((int *) p_v0->p_ad->data), *((int *) p_v1->p_ad->data), *((int *) p_ad_weight->data));
     }
 }
